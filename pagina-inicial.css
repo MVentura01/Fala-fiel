@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #c1c0c0;
+}
+
+header{
+    
+}
+
+.cabecalho{
+    display:flex;
+    flex-direction: row;
+    background-color: black;
+    background-image: url(img/imagemdoheader.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 38%;
+    background-attachment: absolute;
+    height: 8rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.menu{
+    height: 3rem;
+    width: 3rem;
+    margin-bottom: 3.2rem;
+    margin-left: 1rem;
+}
+
+.links img{
+    height: 1.5rem;
+    width: 1.8rem;
+}
+.links{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.fala-fiel{
+    color: aliceblue;
+    display: flex;
+    align-self: center;
+    position: absolute;
+    left: 12%;
+    font-family: sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.borda{
+    border: #c8a101 solid 0.22rem;
+}
+
+.bck-img{
+    background-image: url(img/fundo-main.png);
+    background-repeat: no-repeat;
+    height: 100%;  
+    width: 100%;    
+    
+}
+
+.direita{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+.cadastrar-login{
+    display: flex;
+    margin-left: auto;
+    color: black;
+    border-color: #c8a101;
+    font-size: 1.2rem;
+}
+.cadastro{
+    background-color: #c1c0c0;
+    border-radius: 10rem;
+    padding: 0.5rem 1.5rem;
+    border: black 0.1rem solid;
+    z-index: 100;
+}
+
+.login{
+    background-color: #c1c0c0;
+    border-radius: 10rem;
+    padding: 0.5rem 1.5rem;
+    margin-left: -1.7rem;
+    border: black 0.1rem solid;
+}
