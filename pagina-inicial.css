@@ -22,7 +22,6 @@ header{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 38%;
-    background-attachment: absolute;
     height: 8rem;
     width: 100%;
     justify-content: space-between;
@@ -63,19 +62,11 @@ header{
     border: #c8a101 solid 0.22rem;
 }
 
-.bck-img{
-    background-image: url(img/fundo-main.png);
-    background-repeat: no-repeat;
-    height: 100%;  
-    width: 100%;    
-    
-}
-
 .direita{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2rem;
+    gap: 1rem;
     margin-left: auto;
     padding-right: 2rem;
 }
@@ -84,21 +75,81 @@ header{
     display: flex;
     margin-left: auto;
     color: black;
-    border-color: #c8a101;
-    font-size: 1.2rem;
+    height: 2rem;
+    font-size: 1rem;
+    margin-top: 1.4rem;
+    gap: 0.5rem;
+    margin-right: -1.5rem;
 }
 .cadastro{
+    display: flex;
     background-color: #c1c0c0;
-    border-radius: 10rem;
-    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    padding: 0.2rem 1.2rem;
     border: black 0.1rem solid;
     z-index: 100;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .login{
     background-color: #c1c0c0;
-    border-radius: 10rem;
-    padding: 0.5rem 1.5rem;
-    margin-left: -1.7rem;
+    border-radius: 2rem;
+    padding:0.3rem 1.2rem;
     border: black 0.1rem solid;
+}
+
+.login:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.cadastro:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.bck-img{
+    background-image: url(img/fundo-main.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 38%;
+    height: 46.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-1{
+    margin-top: 10rem;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+    color: #c1c0c0;
+    font-size: 3.5rem;
+    font-family: sans-serif;
+}
+
+.cor-diferente{
+    color: #c8a101;
+}
+
+.texto-menor{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+.botao{
+    margin-top: 4rem;
+    border-radius: 0.8rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #c8a101;
+    font-size: 1.2rem;
+}
+
+.botao:hover{
+    cursor: pointer;
+    transform: scale(1.2);
 }
