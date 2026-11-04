@@ -26,6 +26,8 @@ header{
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 
 
@@ -90,6 +92,8 @@ header{
     z-index: 100;
     gap: 0.5rem;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 .login{
@@ -97,6 +101,8 @@ header{
     border-radius: 2rem;
     padding:0.3rem 1.2rem;
     border: black 0.1rem solid;
+    text-decoration: none;
+    color: black;
 }
 
 .login:hover{
@@ -114,7 +120,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 38%;
-    height: 46.3rem;
+    height: 61.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,3 +159,4 @@ header{
     cursor: pointer;
     transform: scale(1.2);
 }
+
