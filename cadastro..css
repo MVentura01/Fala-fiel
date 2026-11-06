@@ -134,7 +134,7 @@ main{
 }
 
 .paragrafo-email{
-    height: 7rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,7 +144,7 @@ main{
 }
 
 .paragrafo-senha{
-    height: 7rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,7 +154,7 @@ main{
 }
 
 .paragrafo-confirmar{
-    height: 7rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,7 +164,7 @@ main{
 }
 
 .botao-cadastrar{
-    height: 7rem;
+    height: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -204,7 +204,7 @@ main{
 }
 
 .possui-botao{
-    height: 5rem;
+    height: 7rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -229,4 +229,38 @@ main{
 
 .frase-login:hover{
     transform: scale(1.25);
+}
+
+.hero-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+    height: 50rem;
+    width: 60rem;
+    font-size: 3rem;
+}
+
+.frase-fundo{
+    color: white;
+}
+
+.frase-amarela{
+    color: #c8a101;
+    margin-left: 10rem;
+}
+
+.linha{
+    background-color: white;
+    height: 1rem;
+    width: 50rem;
+    margin-left: 10rem;
+    border-radius: 0.2rem;
+}
+
+.paragrafo-subtitulo{
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-left: 10rem;
 }
