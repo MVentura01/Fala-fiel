@@ -60,16 +60,19 @@
                    Senha:
                 </div>
                 <div class="borda-nome">
-                    <input type="password" class="nome-input" minlength="8" required>
+                    <input type="password" id="senha" class="nome-input" minlength="8" required>
                 </div>
                 <div class="autenticacao">
-                    <p class="paragrafo-autenticacao">Sua senha deve conter: <br> <br> <span>letra maiúscula</span> <br> <span>letra minúscula</span> <br> <span>pelo menos um número</span> <br> <span>um caractere especial (!@#$...)</span> </p>                    
+                    <p class="paragrafo-autenticacao">Sua senha deve conter: <br> <br> <span class="maiuscula">letra maiúscula ❌</span> <br> <span class="minuscula">letra minúscula ❌</span> <br> <span class="numero">pelo menos um número ❌</span> <br> <span  class="oito"> 8 carecteres ❌</span> <br> <span class="caractere">um caractere especial (!@#$...) ❌</span> </p>                    
                 </div>
                 <div class="paragrafo-confirmar">
                    Confirmar Senha:
                 </div>
                 <div class="borda-nome">
-                    <input type="password" class="nome-input" minlength="8" required>
+                    <input type="password" id="Confirmar" class="nome-input" minlength="8" required>
+                </div>
+                <div class="informando-confirmacao">
+                    <p class="informando"></p>
                 </div>
                 <div  class="botao-cadastrar">
                 <a href="" class="cadastrar-escrito">
@@ -87,10 +90,56 @@
     
     </div>
     
-</body>
 </html>
 
 <script>
-    
+    const campoSenha = document.getElementById("senha");
+    const campoConfirmar = document.getElementById("confirmar");
 
+    const maiuscula = document.querySelector(".maiuscula");
+    const minuscula = document.querySelector(".minuscula");
+    const numero = document.querySelector(".numero");
+    const caractere = document.querySelector(".caractere");
+    const tamanho = document.querySelector(".oito");
+
+    function marcar(elemento, texto, ok) {
+        
+        if (ok) {
+            elemento.innerHTML = `<span style="color: #c8a101"> ${texto} ☑️</span>`;
+        }
+    }
+
+    function verificacao() {
+        let senha = campoSenha.value;
+
+        let temMaiuscula = senha.toLowerCase() != senha;
+        let temMinuscula = senha.toUpperCase() != senha;
+        let temNumero = /[0-9]/.test(senha);
+        let temEspecial = /[^A-Za-z0-9]/.test(senha);
+        let temtamanho = senha.length >= 8;
+
+        marcar(maiuscula, "letra maiúscula", temMaiuscula);
+        marcar(minuscula, "letra minúscula", temMinuscula);
+        marcar(numero, "pelo menos um número", temNumero);
+        marcar(caractere, "um caractere especial (!@#$...)", temEspecial);
+        marcar(tamanho, "8 carecteres", temtamanho);
+    }
+
+    campoSenha.addEventListener("input", verificacao);
+
+    const informando = document.querySelector(".informando");
+
+function confirmacaoSenha() {
+    let senha = campoSenha.value;
+    let confirmar = campoConfirmar.value;
+
+    if (confirmar != senha) {
+        informando.innerHTML = `<span style="color: red">Senha incorreta ❌</span>`;
+    } else {
+        informando.innerHTML = `<span style="color: #c8a101">Senhas iguais ☑️</span>`;
+    }
+}
+
+campoConfirmar.addEventListener("input", confirmacaoSenha);
+campoSenha.addEventListener("input", confirmacaoSenha);
 </script>
