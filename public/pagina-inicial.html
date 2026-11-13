@@ -35,17 +35,51 @@
         <div class="bck-img">
             <h1 class="hero-1">O PORTAL DA <span class="cor-diferente"> FIEL TORCIDA:</span><br>A VOZ DO <span class="cor-diferente">CORINTHIANS.</span></h1>
            <div class="texto-menor">
-                <p>NOTÍCIAS, OPINIÔES E HISTÓRIA DO TIMÃO</p>
+                <p>NOTÍCIAS, ESTÁTISTICA E HISTÓRIA DO TIMÃO</p>
             </div>
             <div class="botao">
-                <p class="frase-botao">Últimas Notícias</p>
+                <a href="#noticias" class="frase-botao">Últimas Notícias</a>
             </div>
         </div>
-        <div class="imagem-noticias">
-            <div class="dentro-imagem">
+       <div class="imagem-noticias" id="noticias">
+    <div class="carrossel">
+        <button class="seta" id="btnAnterior" aria-label="Anterior">‹</button>
 
+        <div class="dentro-imagem">
+            <img class="img-noticias" id="imgNoticias" src="../public/assets/img/img-noticias/noticia-paulistao.jpeg" alt="">
+        </div>
+
+        <button class="seta" id="btnProximo" aria-label="Próximo">›</button>
+    </div>
+</div>
+    <div class="container-materia">
+        <div class="dentro-materia">
+        <p class="paragrafo-materia">
+        <span class="span" id="tituloMateria">Corinthians conhece os seus primeiros adversários no <span class='mudando-cor'>Paulistão 2027</span></span>
+        <span class="linha-amarela"><br></span>
+        <span class="texto-materia" id="textoMateria">A Federação Paulista de Futebol sorteou a tabela da primeira fase do Paulistão 2027 na terça-feira (10). <span class='mudando-cor'>O Corinthians enfrentará os clássicos contra São Paulo, Palmeiras e Santos, além de Botafogo-SP, Capivariano, Noroeste, Novorizontino e Primavera</span>. O torneio deve começar em 10/01, e os oito clubes com mais pontos após oito rodadas avançam para as quartas de final. <br> CLIQUE NA IMAGEM PARA SABER MAIS</span>
+        </div>
+    </div>
+       
+    <div class="container-elenco">
+        <div class="dentro-container">
+            <p class="paragrafo-elenco">ELENCO PROFISSIONAL</p>
+            <span class="linha"></span>
+            <div class="box-titular">
+                <p class="titulares">TITULARES (4-4-3)</p>
+            </div>
+            <div class="campo-reservas">
+            <div class="box-campo"></div>
+            <div class="box-reservas"></div>
             </div>
         </div>
+        
+
+
+    </div>
+
+
+
     </main>
 
     
@@ -55,3 +89,47 @@
     </footer>
 </body>
 </html>
+<script>
+    const noticias = [
+    {
+        imagem: "../public/assets/img/img-noticias/noticia-paulistao.jpeg",
+        titulo: `Corinthians conhece os seus primeiros adversários no <span class='mudando-cor'>Paulistão 2027</span>`,
+        texto: "A Federação Paulista de Futebol sorteou a tabela da primeira fase do Paulistão 2027 na terça-feira (10). <span class='mudando-cor'>O Corinthians enfrentará os clássicos contra São Paulo, Palmeiras e Santos, além de Botafogo-SP, Capivariano, Noroeste, Novorizontino e Primavera</span>. O torneio deve começar em 10/01, e os oito clubes com mais pontos após oito rodadas avançam para as quartas de final.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>"
+    },
+    {
+        imagem: "../public/assets/img/img-noticias/corinthians-informa.jpeg",
+        titulo: "Corinthians <span class='mudando-cor'> informa</span> – Comunicado aos<span class='mudando-cor'> sócios </span>",
+        texto: 'Por determinação judicial, o Sport Club Corinthians Paulista forneceu os dados dos seus associados às chapas inscritas nas eleições gerais de 2026 (marcadas para 28 de novembro) para uso exclusivo na campanha eleitoral. Para proteger a privacidade das informações e evitar vazamentos, o Clube exigiu que os representantes das chapas assinassem um termo de confidencialidade.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>'
+    },
+    {
+        imagem: "../public/assets/img/img-noticias/noticias.jpg",
+        titulo: "NBB – Ingressos - Corinthians x Osasco – 14/11 - Ginásio Wlamir Marques",
+        texto: "O Sport Club Corinthians Paulista anuncia como se dará a <span class='mudando-cor'>venda de ingressos e a recepção do público no ginásio Wlamir Marques</span>, no Parque São Jorge, para a partida entre <span class='mudando-cor'>Corinthians x Osasco, em 14/11, às 16h </span>, válido pela 7ª rodada do NBB CAIXA 2026/27. <br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </H4>"
+    }
+];
+
+const img = document.getElementById("imgNoticias");
+const titulo = document.getElementById("tituloMateria");
+const texto = document.getElementById("textoMateria");
+
+
+let atual = 0;
+
+function mostrar(i) {
+    atual = (i + noticias.length) % noticias.length;
+    const n = noticias[atual];
+
+    img.src = n.imagem;
+    titulo.innerHTML = n.titulo;
+    texto.innerHTML = n.texto;
+
+    bolinhas.forEach(b => b.classList.remove("ativa"));
+    bolinhas[atual].classList.add("ativa");
+}
+
+btnAnterior.addEventListener("click", () => mostrar(atual - 1));
+btnProximo.addEventListener("click", () => mostrar(atual + 1));
+bolinhas.forEach((bolinha, i) => bolinha.addEventListener("click", () => mostrar(i)));
+
+mostrar(0);
+</script>
