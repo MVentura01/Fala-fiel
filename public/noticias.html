@@ -1,12 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/pagina-inicial.css">
+    <link rel="stylesheet" href="../public/css/noticias.css">
     <title>Notícias</title>
 </head>
 <body>
-    <h1>Todas as Notícias</h1>
+    <header>
+    <div class="container-header">
+        <div class="fala-fiel">
+            <p>Fala Fiel</p>
+        </div>
 
+        <div class="botoes-header">
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">Notícias ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Acompanhe o Timão</p>
+                    <a class="opcao" href="pagina-inicial.html#noticias">
+                        <strong>Últimas notícias</strong>
+                        <span>O que acabou de acontecer.</span>
+                    </a>
+                    <a class="opcao" href="../public/noticias.html#noticias">
+                        <strong>Todas as notícias</strong>
+                        <span>Todo o histórico de matérias.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">História ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Conheça as histórias</p>
+                    <a class="opcao" href="#">
+                        <strong>História do Corinthians</strong>
+                        <span>Da fundação até hoje.</span>
+                    </a>
+                    <a class="opcao" href="#">
+                        <strong>Minha história</strong>
+                        <span>Como me tornei corinthiano.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="pagina-inicial.html#elenco">Elenco</a>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="#">Estatística do clube</a>
+            </div>
+            <div class="dropdown">
+          <a class="dropdown-titulo" href="pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
+        </div>
+        </div>
+
+        <div class="cadastro-login">
+            <a class="cadastro" href="/public/pagina-cadastro.html"><p>Cadastrar</p></a>
+            <a class="login" href="/public/login.html"><p>Login</p></a>
+        </div>
+
+    </div>
+      <div class="borda"></div>
+    </header>
+
+
+    <main>
+        <section class="lista-noticias" id="noticias"></section>
+    </main>
+
+    <script>
+    const noticias = [
+        {
+            id: 1,
+            imagem: "../public/assets/img/img-noticias/noticia-paulistao.jpeg",
+            titulo: `Corinthians conhece os seus primeiros adversários no <span class='mudando-cor'>Paulistão 2027</span>`,
+            texto: "A Federação Paulista de Futebol sorteou a tabela da primeira fase do Paulistão 2027 na terça-feira (10). <span class='mudando-cor'>O Corinthians enfrentará os clássicos contra São Paulo, Palmeiras e Santos, além de Botafogo-SP, Capivariano, Noroeste, Novorizontino e Primavera</span>. O torneio deve começar em 10/01, e os oito clubes com mais pontos após oito rodadas avançam para as quartas de final.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>"
+        },
+        {
+            id: 2,
+            imagem: "../public/assets/img/img-noticias/corinthians-informa.jpeg",
+            titulo: "Corinthians <span class='mudando-cor'> informa</span> – Comunicado aos<span class='mudando-cor'> sócios </span>",
+            texto: "Por determinação judicial, o Sport Club Corinthians Paulista forneceu os dados dos seus associados às chapas inscritas nas eleições gerais de 2026 (marcadas para 28 de novembro) para uso exclusivo na campanha eleitoral. Para proteger a privacidade das informações e evitar vazamentos, o Clube exigiu que os representantes das chapas assinassem um termo de confidencialidade.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>"
+        },
+        {
+            id: 3,
+            imagem: "../public/assets/img/img-noticias/noticias.jpg",
+            titulo: "NBB – Ingressos - Corinthians x Osasco – 14/11 - Ginásio Wlamir Marques",
+            texto: "O Sport Club Corinthians Paulista anuncia como se dará a <span class='mudando-cor'>venda de ingressos e a recepção do público no ginásio Wlamir Marques</span>, no Parque São Jorge, para a partida entre <span class='mudando-cor'>Corinthians x Osasco, em 14/11, às 16h </span>, válido pela 7ª rodada do NBB CAIXA 2026/27. <br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>"
+        }
+    ]
+
+    const lista = document.getElementById("noticias")
+
+    noticias.forEach((n) => {
+        const destino = "/public/noticiasespecificas.html?id=" + n.id
+
+        lista.innerHTML += `
+            <article class="cartao-noticia">
+                <h2 class="cartao-titulo">${n.titulo}</h2>
+                <a class="link-imagem" href="${destino}">
+                    <img class="cartao-imagem" src="${n.imagem}" alt="">
+                </a>
+                <div class="cartao-previa">${n.texto}</div>
+                <a class="botao-materia" href="${destino}">Ver matéria</a>
+            </article>
+        `
+    })
+    </script>
 </body>
 </html>

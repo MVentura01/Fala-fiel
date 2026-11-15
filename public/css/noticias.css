@@ -2,3 +2,73 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+    background-color: #c1c0c0;
+}
+
+.lista-noticias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.cartao-noticia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.cartao-titulo{
+    max-width: 50vw;
+    margin-bottom: 1.5rem;
+    font-family: sans-serif;
+    font-size: 3rem;
+    color: black;
+}
+
+.link-imagem{
+    display: block;
+    width: 50vw;
+}
+
+.cartao-imagem{
+    display: block;
+    width: 50vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.cartao-previa{
+    max-width: 50vw;
+    margin: 1.5rem 0;
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: black;
+}
+
+.cartao-previa h4{
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+.mudando-cor{
+    color: #c1a101;
+}
+
+.botao-materia{
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: #c1a101;
+    border-radius: 2rem;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
