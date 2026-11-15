@@ -101,7 +101,7 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 38%;
-    height: 64.5rem;
+    height: 72rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -158,7 +158,7 @@ header{
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 70rem;
+    height: 40rem;
     width: 100%;
     background-color: black;
    

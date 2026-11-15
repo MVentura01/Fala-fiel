@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#minhahistoria h3,
+#minhahistoria p,
+#minhahistoria li,
+#minhahistoria a,
+#minhahistoria strong,
+#minhahistoria em{
+    color: #000000 !important;
+    font-family: sans-serif;
+}
+
+#minhahistoria{
+    height: 200rem;
+}
+
+#container-textos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#titulo-minhahistoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 14rem;
+    width: 100%;
+    font-size: 5rem;
+}
+
+#minhahistoria h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#minhahistoria p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 80%;
+    font-size: 2rem;
+}
+
+#imagem-inicio,
+#imagem-infancia,
+#imagem-pertencimento,
+#imagem-dias-dificeis,
+#imagem-hoje{
+    display: block;
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    margin: 1.5rem auto 3rem;
+    border: 0.4rem solid black;
+}
+
+h3{
+    border-bottom: #000000 solid 0.2rem;
+}
+
+#pp{
+}
