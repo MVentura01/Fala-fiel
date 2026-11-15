@@ -4,15 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notícia | Fala Fiel</title>
-    <link rel="stylesheet" href="noticia.css">
+    <link rel="stylesheet" href="../public/css/noticiasespecificas.css">
+    <link rel="stylesheet" href="../public/css/header.css">
 </head>
 <body>
+    <head>
+    <div class="container-header">
+        <div class="fala-fiel">
+            <p>Fala Fiel</p>
+        </div>
 
+        <div class="botoes-header">
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">Notícias ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Acompanhe o Timão</p>
+                    <a class="opcao" href="pagina-inicial.html#noticias">
+                        <strong>Últimas notícias</strong>
+                        <span>O que acabou de acontecer.</span>
+                    </a>
+                    <a class="opcao" href="#">
+                        <strong>Todas as notícias</strong>
+                        <span>Todo o histórico de matérias.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">História ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Conheça as histórias</p>
+                    <a class="opcao" href="#">
+                        <strong>História do Corinthians</strong>
+                        <span>Da fundação até hoje.</span>
+                    </a>
+                    <a class="opcao" href="#">
+                        <strong>Minha história</strong>
+                        <span>Como me tornei corinthiano.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="pagina-inicial.html#elenco">Elenco</a>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="#">Estatística do clube</a>
+            </div>
+            <div class="dropdown">
+          <a class="dropdown-titulo" href="pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
+        </div>
+        </div>
+
+        <div class="cadastro-login">
+            <a class="cadastro" href="/public/pagina-cadastro.html"><p>Cadastrar</p></a>
+            <a class="login" href="/public/login.html"><p>Login</p></a>
+        </div>
+
+    </div>
+        </header>
     <main class="noticia">
         <h1 id="titulo"></h1>
-        <span id="data"></span>
         <img id="imagem" src="" alt="">
         <p id="texto"></p>
+        <span id="data"></span>
     </main>
 
 
@@ -20,7 +76,7 @@
     <script>
     const noticiasespecificas = [{
         id : 1,
-        data:"10-11-2027",
+        data:"10-11-2026",
         titulo: "Corinthians conhece os seus primeiros adversários no <span class='mudando-cor'>Paulistão 2027</span>",
         imagem: "../public/assets/img/img-noticias/noticia-paulistao.jpeg",
         texto: "Na noite desta terça-feira (10), a Federação Paulista de Futebol realizou o sorteio da tabela da primeira fase do Paulistão 2027.O Timão terá como adversário, além dos clássicos com São Paulo, Palmeiras e Santos, as equipes do Botafogo-SP, Capivariano, Noroeste, Novorizontino e Primavera. A data de início do torneio estadual está prevista para o dia 10/01. Após oito rodadas de confrontos, os oito clubes que mais pontuarem se classificam para as quartas de final, dando início às fases eliminatórias.Tags: Notícias, FutebolCategoria(s): Futebol"
@@ -28,10 +84,10 @@
     },
     {
         id : 2,
-        data: "08-11-2027",
+        data: "08-11-2026",
         titulo: "Corinthians informa – Comunicado aos sócios",
         imagem: "../public/assets/img/img-noticias/corinthians-informa.jpeg",
-        texto: "O Sport Club Corinthians Paulista informa que, em cumprimento a uma determinação judicial, disponibilizou às chapas regularmente inscritas para as eleições gerais de 2026 os dados de seus associados para utilização exclusivamente em atividades relacionadas ao processo eleitoral interno do Clube, designado para 28 de novembro, com a finalidade de assegurar a transparência, a isonomia entre os participantes do pleito e o regular exercício das atividades de campanha. O Clube esclarece que, como medida de proteção e segurança das informações, solicitou aos representantes das chapas a assinatura de um termo de confidencialidade, com o objetivo de assegurar o uso adequado dos dados, restringir seu acesso às finalidades relacionadas ao processo eleitoral e prevenir eventuais vazamentos ou compartilhamentos indevidos.O Corinthians reitera seu compromisso com a transparência, o cumprimento das determinações judiciais e a preservação da privacidade e da segurança das informações de seus associados.Tags: Notícias, InstitucionalCategoria(s): Institucional"
+        texto: "O Sport Club Corinthians Paulista anuncia como se dará a venda de ingressos e a recepção do público no ginásio Wlamir Marques, no Parque São Jorge, para a partida entre Corinthians x Osasco, em 14/11, às 16h, válido pela 7ª rodada do NBB CAIXA 2026/27.Atenção: a compra é condicionada ao cadastro da biometria facial obrigatório e o preenchimento de todos os dados cadastrais. A entrada no ginásio será com apresentação do QR code.INFORMAÇÕES SOBRE A VENDA DE INGRESSOS A venda dos ingressos será feita exclusivamente online, pela plataforma. Não haverá bilheteria física. A partida NÃO conta pontos para o Fiel Torcedor. QUARTA-FEIRA, 11 DE NOVEMBRO, A PARTIR DAS 11H Abertura para todos os membros adimplentes do Fiel Torcedor, que terão acesso à compra de ingressos pela plataforma online (mediante disponibilidade de ingressos). Abertura para torcedores em geral, que terão acesso à compra dos ingressos disponíveis em suas categorias pelo site (mediante disponibilidade de ingressos). VALORES DOS INGRESSOS Estarão disponíveis ingressos para arquibancada e serão vendidos a valor de face de R$ 20,00. Cadeira de quadra, será R$ 100,00. Membros do programa Fiel Torcedor têm desconto de 50% e pagam R$ 10 pelo ingresso na arquibancada e R$ 50,00 nas Cadeiras de quadra. Têm direito à meia entrada todos que se enquadrem nos quesitos da Lei nº 12.933/2013.INFORMAÇÕES GERAIS SOBRE O ACESSO AO GINÁSIO – A abertura dos portões será às 15h.– Os torcedores do Corinthians terão acesso pelo portão 4 (ao lado da loja Poderoso Timão).– Para evitar aglomerações na entrada, pedimos que os torcedores cheguem com antecedência em relação ao horário de início da partida.– Pedimos aos torcedores que privilegiem meios de pagamento sem contato (cartões) no interior do ginásio.<br><br>Atenciosamente,Sport Club Corinthians Paulista.Tags: Notícias, Ingressos, Basquete<br>Categoria(s): Ingressos, Basquete"
     },
     {
         id : 3,
@@ -57,7 +113,7 @@ const noticiaEscolhida = noticiasespecificas.find(noticiasespecificas => noticia
     titulo.innerHTML = noticiaEscolhida.titulo
     data.textContent = noticiaEscolhida.data
     imagem.src = noticiaEscolhida.imagem
-    texto.textContent = noticiaEscolhida.texto
+    texto.innerHTML = noticiaEscolhida.texto
 } else {
     titulo.textContent = "Notícia não encontrada"
 }

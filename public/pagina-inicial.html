@@ -29,7 +29,7 @@
                         <strong>Últimas notícias</strong>
                         <span>O que acabou de acontecer.</span>
                     </a>
-                    <a class="opcao" href="#">
+                    <a class="opcao" href="../public/noticias.html#noticias">
                         <strong>Todas as notícias</strong>
                         <span>Todo o histórico de matérias.</span>
                     </a>
@@ -90,12 +90,13 @@
           <button class="seta" id="btnAnterior" aria-label="Anterior">‹</button>
 
           <div class="dentro-imagem">
+          
             <img
               class="img-noticias"
               id="imgNoticias"
               src="../public/assets/img/img-noticias/noticia-paulistao.jpeg"
               alt=""
-            />
+            /> 
           </div>
 
           <button class="seta" id="btnProximo" aria-label="Próximo">›</button>
@@ -374,12 +375,14 @@
   <script>
   const noticias = [
     {
+      id: 1,
       imagem: "../public/assets/img/img-noticias/noticia-paulistao.jpeg",
       titulo: `Corinthians conhece os seus primeiros adversários no <span class='mudando-cor'>Paulistão 2027</span>`,
       texto:
         "A Federação Paulista de Futebol sorteou a tabela da primeira fase do Paulistão 2027 na terça-feira (10). <span class='mudando-cor'>O Corinthians enfrentará os clássicos contra São Paulo, Palmeiras e Santos, além de Botafogo-SP, Capivariano, Noroeste, Novorizontino e Primavera</span>. O torneio deve começar em 10/01, e os oito clubes com mais pontos após oito rodadas avançam para as quartas de final.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>",
     },
     {
+      id: 2,
       imagem: "../public/assets/img/img-noticias/corinthians-informa.jpeg",
       titulo:
         "Corinthians <span class='mudando-cor'> informa</span> – Comunicado aos<span class='mudando-cor'> sócios </span>",
@@ -387,6 +390,7 @@
         "Por determinação judicial, o Sport Club Corinthians Paulista forneceu os dados dos seus associados às chapas inscritas nas eleições gerais de 2026 (marcadas para 28 de novembro) para uso exclusivo na campanha eleitoral. Para proteger a privacidade das informações e evitar vazamentos, o Clube exigiu que os representantes das chapas assinassem um termo de confidencialidade.<br> <h4> CLIQUE NA IMAGEM PARA SABER MAIS. </h4>",
     },
     {
+      id: 3,
       imagem: "../public/assets/img/img-noticias/noticias.jpg",
       titulo:
         "NBB – Ingressos - Corinthians x Osasco – 14/11 - Ginásio Wlamir Marques",
@@ -674,6 +678,11 @@
     titulo.innerHTML = n.titulo;
     texto.innerHTML = n.texto;
   }
+
+  img.addEventListener("click", () => {
+    const noticia = noticias[atual]
+    window.location.href = "/public/noticiasespecificas.html?id=" + noticia.id
+  })
 
   btnAnterior.addEventListener("click", () => mostrar(atual - 1));
   btnProximo.addEventListener("click", () => mostrar(atual + 1));
