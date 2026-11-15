@@ -14,19 +14,6 @@ header{
     position: sticky;   
 }
 
-.cabecalho{
-    display: flex;
-    flex-direction: row;
-    background-color: black;
-    background-image: url(/public/assets/img/imagemdoheader.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center 38%;
-    height: 8rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .menu{
     height: 3rem;
     width: 3rem;
@@ -86,7 +73,6 @@ header{
     background-color: #c1c0c0;
     border-radius: 2rem;
     padding: 0.2rem 1.2rem;
-    border: black 0.1rem solid;
     z-index: 100;
     gap: 0.5rem;
     align-items: center;
@@ -98,7 +84,6 @@ header{
     background-color: #c1c0c0;
     border-radius: 2rem;
     padding: 0.3rem 1.2rem;
-    border: black 0.1rem solid;
     text-decoration: none;
     color: black;
 }
@@ -107,6 +92,7 @@ header{
 .cadastro:hover{
     cursor: pointer;
     transform: scale(1.2);
+    box-shadow: 0 8px 0 #c8a101; 
 }
 
 
@@ -699,7 +685,6 @@ footer{
     flex-direction: row;
 }
 .dentro-footer{
-
     height: 40rem;
     width:100%;
     display: flex;
@@ -756,3 +741,4 @@ footer{
     width: 100%;
     background-color: black;
 }
+
