@@ -7,6 +7,7 @@ main{
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
+    background-color: white;
 }
 
 .titulo{
@@ -37,10 +38,11 @@ main{
 .container-texto{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     margin-top: 12rem;
     margin-left: 2rem;
-    width: 90%;
+    width: 98%;
 }
 
 .titulo{
@@ -50,11 +52,14 @@ main{
 .container-texto h3{
     color: #000000;
     font-size: 3rem;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
 }
 
 .container-texto p{
     color: #000000;
     font-size: 2rem;
+    border-bottom: solid 0.2rem black;
 }
 
 .container-texto strong{
@@ -74,9 +79,10 @@ main .container-texto h2{
 }
 
 
-
-
-
-
-
-
+.dentro-paragrafo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
