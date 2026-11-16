@@ -84,17 +84,17 @@
                 <p class="paragrafo-fazer">
                     Faça seu cadastro:
                 </p>
-                <p class="paragrafo-nome">Nome:</p>
+                <p class="paragrafo-nome" id="ipt_CadastroNome">Nome:</p>
                 <div class="borda-nome">
                     <input type="text" class="nome-input">
                 </div>
-                <div class="paragrafo-email">
+                <div class="paragrafo-email" id="ipt_CadastroEmail">
                    Email:
                 </div>
                 <div class="borda-nome">
                     <input type="text" class="nome-input">
                 </div>
-                <div class="paragrafo-senha">
+                <div class="paragrafo-senha" id="ipt_CadastroSenha">
                    Senha:
                 </div>
                 <div class="borda-nome">
@@ -103,7 +103,7 @@
                 <div class="autenticacao">
                     <p class="paragrafo-autenticacao">Sua senha deve conter: <br> <br> <span class="maiuscula">letra maiúscula ❌</span> <br> <span class="minuscula">letra minúscula ❌</span> <br> <span class="numero">pelo menos um número ❌</span> <br> <span  class="oito"> 8 carecteres ❌</span> <br> <span class="caractere">um caractere especial (!@#$...) ❌</span> </p>                    
                 </div>
-                <div class="paragrafo-confirmar">
+                <div class="paragrafo-confirmar" id="ipt_CadastroConfirmarSenha">
                    Confirmar Senha:
                 </div>
                 <div class="borda-nome">
@@ -180,4 +180,72 @@ function confirmacaoSenha() {
 
 campoConfirmar.addEventListener("input", confirmacaoSenha);
 campoSenha.addEventListener("input", confirmacaoSenha);
+
+
+    function cadastrar(){
+
+    
+    let ax_Nome = ipt_CadastroNome.value;
+    let ax_Email = ipt_CadastroEmail.value;
+    let ax_Senha = ipt_CadastroSenha.value;
+    let ax_ConfirmaSenha = ipt_CadastroConfirmarSenha.value;
+
+
+
+
+      if (ax_Nome == '') {
+        alert('É necessário informar o seu nome para seguir com o cadastro')
+      }
+      else if (ax_Email == '') {
+        alert('É necessário informar o seu email para seguir com o cadastro')
+      }
+      else if (ax_Senha == '') {
+        alert('É necessário inserir uma senha para seguir com o cadastro')
+      }
+      else if (ax_ConfirmaSenha == '') {
+        alert('É necessário inserir a senha novamente para seguir com o cadastro')
+      } 
+      else if (ax_ConfirmaSenha != ax_Senha) {
+        alert('Senhas não condizentes')
+      }
+      //else if(ValidarCadastro <= 1){
+        //alert("Sua senha precisa ser no minimo média")
+     // }
+
+
+      fetch('/usuarios/cadastrar', {
+        method:"POST",
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: ax_Nome,
+            emailServer: ax_Email,
+            senhaServer: ax_Senha,
+            confirmacaoSenhaServer: ax_ConfirmaSenha
+        })
+        
+      }).then(function(resposta){
+        if(resposta.ok){
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.user_name = json.name;
+            sessionStorage.user_email = json.email;
+
+            setTimeout(function (){
+              window.location = "../login/login.html"
+            },1000)
+          })
+        }
+        else {
+            console.log("Houve um erro ao tentar realizar o login");
+            resposta.text().then(texto =>{
+              console.error(texto);
+            });
+          }
+      })
+    }
 </script>
