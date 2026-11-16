@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../public/css/quiz.css">
+</head>
+<body>
+
+        <div id="jogo">
+
+            <div id="infoQuestao" >
+                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
+                    questões.</span>
+            </div>
+
+            <div id="perguntaDaQuestaoAtual" >
+               <span id="spanQuestaoExibida"></span>
+            </div>
+
+            <div id="infoAlternativas" >
+                 <span><em>Escolha uma opção dentre as abaixo:</em></span>
+            </div>
+
+            <div id="opcoes">
+               
+            </div>
+
+            <div id="botoes">
+                
+                <button onclick="avancar()" id="btnProx">Avançar para próxima questão</button>
+                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+            </div>
+
+        </div>
+   <script>
+    const listaDeQuestoes = [
+
+        {
+            pergunta: "Qual seu jogador favorito do elenco atual?",
+            opcoes: [
+            "Hugo Souza", "Felipe Longo", "Kauê",
+            "André Ramalho", "Gabriel Paulista", "Gustavo Henrique", "Iago Machado", "João Pedro Tchoca",
+            "Fabrizio Angileri", "Matheus Bidu", "Matheuzinho", "Pedro Milans",
+            "Allan", "André Carrillo", "André Luiz", "Breno Bidon", "Charles", "Jesse Lingard", "Kayke", "Matheus Pereira", "Raniele", "Rodrigo Garro", "Zakaria Labyad",
+            "Dieguinho", "Gui Negão", "Kaio César", "Memphis Depay", "Pedro Raul", "Vitinho", "Yuri Alberto"
+        ]},
+
+        {
+            pergunta: "Para você, qual o maior ídolo do Corinthians?",
+             opcoes: ["Sócrates", "Rivellino", "Neto", "Marcelinho Carioca", "Ronaldo", "Cássio", "Gil", "Vampeta", "Tevez", "Emerson Sheik", "Romero", "Renato Augusto", "Danilo", "Chicão", "Fagner"]
+        },
+
+        {
+            pergunta: "Para você, qual o maior rival do Corinthians?",
+            opcoes: ["Palmeiras", "São Paulo", "Santos", "Flamengo", "Internacional"]
+        }
+
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+
+    function iniciarQuiz() {
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        let opcoes = document.getElementById("opcoes")
+        opcoes.innerHTML = ""
+
+        questaoAtual.opcoes.forEach((opcoes, i) => {
+            let radio = document.createElement("input")
+            radio.type = "radio"
+            radio.name = "option"
+            radio.id = "opcao0"
+            radio.value = "Hugo Souza"
+        })
+    }
+
+    
+    
+    function avancar() {
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        }
+    }
+
+
+    
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+iniciarQuiz()
+</script>
+</body>
+
+</html>
