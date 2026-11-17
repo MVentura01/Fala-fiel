@@ -85,26 +85,20 @@
                 <p class="paragrafo-fazer">
                     Faça seu login:
                 </p>
-                <div class="paragrafo-email">
+                <div class="paragrafo-email" id="ipt_email">
                    Email:
                 </div>
                 <div class="borda-nome">
                     <input type="text" class="nome-input">
                 </div>
-                <div class="paragrafo-senha">
+                <div class="paragrafo-senha" id="ipt_senha">
                    Senha:
                 </div>
                 <div class="borda-nome">
                     <input type="password" class="nome-input" minlength="8" required>
                 </div>
-                <div class="paragrafo-confirmar">
-                   Confirmar Senha:
-                </div>
-                <div class="borda-nome">
-                    <input type="password" class="nome-input" minlength="8" required>
-                </div>
                 <div  class="botao-cadastrar">
-                <a href="" class="cadastrar-escrito">
+                <button onclick="entrar()" class="cadastrar-escrito">
                    Entre
                 </a>
                 </div>
@@ -123,6 +117,43 @@
 </html>
 
 <script>
-    
+
+    function entrar(){
+        let ax_Senha = ipt_senha.value;
+        let ax_Email = ipt_email.value;
+
+         if (ax_Email == '' || ax_Senha == '') {
+        alert('Preencha email e senha');
+        return;
+    }
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {"Content-Type": "application.json" },
+        body: JSON.stringify({
+            emaiServer: ax_Email,
+            senhaServer: ax_Senha
+        })
+    })
+        
+   .then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                sessionStorage.user_id = json.id;
+                sessionStorage.user_nome = json.nome;
+                sessionStorage.user_email = json.email;
+
+                window.location = "/public/pagina-inicial.html";
+            });
+        } else {
+            resposta.text().then(texto => {
+                alert(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.error(erro);
+        alert("Não foi possível conectar com o servidor.");
+    });
+}
 
 </script>
