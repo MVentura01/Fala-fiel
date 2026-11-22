@@ -1,7 +1,10 @@
+
+
+
 const areaLogin = document.querySelector(".cadastro-login");
 
 if (sessionStorage.user_id) {
-    areaLogin.innerHTML = `<a class="login" href="#" onclick="sair()"><p>Sair</p></a>`;
+    areaLogin.innerHTML = `<a id ="logout" class="login" href="#" onclick="sair()"><p>Logout</p></a>`;
 }
 
 function sair() {

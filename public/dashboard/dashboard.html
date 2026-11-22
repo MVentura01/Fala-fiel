@@ -7,25 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/dashboards.css">
     <title>Fala Fiel | Dashboard</title>
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- scripts do Chart.js - 2022-1 -->
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
-
 <!-- <body onload=" atualizarFeed()"> -->
-
- <header>
+<body>
+    <header>
     <div class="container-header">
         <div class="fala-fiel">
             <p>Fala Fiel</p>
@@ -37,11 +30,11 @@
                 <p class="dropdown-titulo">Notícias ⌄</p>
                 <div class="dropdown-caixa">
                     <p class="caixa-titulo">Acompanhe o Timão</p>
-                    <a class="opcao" href="pagina-inicial.html#noticias">
+                    <a class="opcao" href="../pagina-inicial.html#noticias">
                         <strong>Últimas notícias</strong>
                         <span>O que acabou de acontecer.</span>
                     </a>
-                    <a class="opcao" href="../public/noticias.html#noticias">
+                    <a class="opcao" href="../noticias.html#noticias">
                         <strong>Todas as notícias</strong>
                         <span>Todo o histórico de matérias.</span>
                     </a>
@@ -52,11 +45,11 @@
                 <p class="dropdown-titulo">História ⌄</p>
                 <div class="dropdown-caixa">
                     <p class="caixa-titulo">Conheça as histórias</p>
-                    <a class="opcao" href="../public/historia.html#historia">
+                    <a class="opcao" href="../historia.html#historia">
                         <strong>História do Corinthians</strong>
                         <span>Da fundação até hoje.</span>
                     </a>
-                    <a class="opcao" href="public/minha-historia.html#minhahistoria">
+                    <a class="opcao" href="../minha-historia.html#minhahistoria">
                         <strong>Minha história</strong>
                         <span>Como me tornei corinthiano.</span>
                     </a>
@@ -64,13 +57,13 @@
             </div>
 
             <div class="dropdown">
-                <a class="dropdown-titulo" href="pagina-inicial.html#elenco">Elenco</a>
+                <a class="dropdown-titulo" href="../pagina-inicial.html#elenco">Elenco</a>
             </div>
             <div class="dropdown">
                 <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">Estatística do clube</a>
             </div>
             <div class="dropdown">
-          <a class="dropdown-titulo" href="pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
+          <a class="dropdown-titulo" href="../pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
         </div>
         </div>
 
@@ -83,9 +76,33 @@
       <div class="borda"></div>
     </header>
 
-<body>
-
-    
+<main>
+    <div class="container-dashboard">
+        <div class="container-esquerdo">
+            <div class="box-x">
+                <h1 class="titulo-x">Raio-x do Timão</h1>
+            </div>
+            <div class="container-links">
+            <div class="box-desempenho">
+                <div class="box-color">
+                <a href=""><h2 class="subtitulo-desempenho">Desempenho</h2></a>
+                </div>
+            </div>
+            <div class="box-quiz">
+                <div class="box-color">
+                <a href=""><h2 class="subtitulo-quiz">Resposta do quiz</h2></a>
+                </div>
+            </div>
+            <div class="box-configuracao">
+                <div class="box-color">
+                <a href=""><h2 class="subtitulo-configuracoes">Configurações</h2></a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</main>
+    <script src="../header.js"></script>
 </body>
 
 </html>
