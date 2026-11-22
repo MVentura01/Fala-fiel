@@ -9,7 +9,6 @@
 </head>
 <body>
     <header>
-    <header>
     <div class="container-header">
         <div class="fala-fiel">
             <p>Fala Fiel</p>
@@ -85,22 +84,22 @@
                 <p class="paragrafo-fazer">
                     Faça seu login:
                 </p>
-                <div class="paragrafo-email" id="ipt_email">
+                <div class="paragrafo-email">
                    Email:
                 </div>
                 <div class="borda-nome">
-                    <input type="text" class="nome-input">
+                    <input type="email" class="nome-input"  id="ipt_email">
                 </div>
-                <div class="paragrafo-senha" id="ipt_senha">
+                <div class="paragrafo-senha">
                    Senha:
                 </div>
                 <div class="borda-nome">
-                    <input type="password" class="nome-input" minlength="8" required>
+                    <input type="password" class="nome-input" minlength="8" required id="ipt_senha">
                 </div>
                 <div  class="botao-cadastrar">
                 <button onclick="entrar()" class="cadastrar-escrito">
                    Entre
-                </a>
+                </button>
                 </div>
                 <div class="ja-possui">
                     <p class="frase-possui">Não possui conta?</p><br>
@@ -129,21 +128,21 @@
 
     fetch("/usuarios/autenticar", {
         method: "POST",
-        headers: {"Content-Type": "application.json" },
+        headers: {"Content-Type": "application/json" },
         body: JSON.stringify({
-            emaiServer: ax_Email,
+            emailServer: ax_Email,
             senhaServer: ax_Senha
         })
-    })
-        
-   .then(function (resposta) {
+    }).then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(json => {
                 sessionStorage.user_id = json.id;
                 sessionStorage.user_nome = json.nome;
                 sessionStorage.user_email = json.email;
 
-                window.location = "/public/pagina-inicial.html";
+                 setTimeout(function () {
+                            window.location = "/public/quiz.html";
+                        }, 1000);
             });
         } else {
             resposta.text().then(texto => {

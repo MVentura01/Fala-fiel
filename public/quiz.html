@@ -6,8 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="../public/css/quiz.css">
+    <link rel="stylesheet" href="/public/css/pagina-inicial.css" />
+    <link rel="stylesheet" href="../public/css/header.css">
 </head>
 <body>
+     <header>
+    <div class="container-header">
+        <div class="fala-fiel">
+            <p>Fala Fiel</p>
+        </div>
+
+        <div class="botoes-header">
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">Notícias ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Acompanhe o Timão</p>
+                    <a class="opcao" href="pagina-inicial.html#noticias">
+                        <strong>Últimas notícias</strong>
+                        <span>O que acabou de acontecer.</span>
+                    </a>
+                    <a class="opcao" href="../public/noticias.html#noticias">
+                        <strong>Todas as notícias</strong>
+                        <span>Todo o histórico de matérias.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">História ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Conheça as histórias</p>
+                    <a class="opcao" href="../public/historia.html#historia">
+                        <strong>História do Corinthians</strong>
+                        <span>Da fundação até hoje.</span>
+                    </a>
+                    <a class="opcao" href="../public/minha-historia.html#minhahistoria">
+                        <strong>Minha história</strong>
+                        <span>Como me tornei corinthiano.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="../public/pagina-inicial.html#elenco">Elenco</a>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="#">Estatística do clube</a>
+            </div>
+            <div class="dropdown">
+          <a class="dropdown-titulo" href="pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
+        </div>
+        </div>
+
+        <div class="cadastro-login">
+            <a class="cadastro" href="/public/pagina-cadastro.html"><p>Cadastrar</p></a>
+            <a class="login" href="/public/login.html"><p>Login</p></a>
+        </div>
+
+    </div>
+      <div class="borda"></div>
+    </header>
+    <div class="container-total">
 
         <div id="jogo">
 
@@ -31,10 +91,11 @@
             <div id="botoes">
                 
                 <button onclick="avancar()" id="btnProx">Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                <button onclick="finalizar()" id="btnConcluir">Finalizar Quiz</button>
             </div>
 
         </div>
+    </div>
    <script>
     const listaDeQuestoes = [
 
@@ -80,38 +141,97 @@
         let opcoes = document.getElementById("opcoes")
         opcoes.innerHTML = ""
 
-        questaoAtual.opcoes.forEach((opcoes, i) => {
+        questaoAtual.opcoes.forEach((opcao, i) => {
             let radio = document.createElement("input")
             radio.type = "radio"
             radio.name = "option"
-            radio.id = "opcao0"
-            radio.value = "Hugo Souza"
+            radio.id = "opcao" + i
+            radio.value = opcao
+            let label = document.createElement("label")
+            label.htmlFor = radio.id
+            label.innerHTML = opcao
+            let linha = document.createElement("div")
+            linha.appendChild(radio)
+            linha.appendChild(label)
+            opcoes.appendChild(linha)
         })
+
+
+
     }
 
-    
+    let resposta = []
     
     function avancar() {
+        let alternativa_marcada = document.querySelector("input[name='option']:checked")
+        numeroDaQuestaoAtual++  
 
-        desmarcarRadioButtons()
-
-        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        if(alternativa_marcada == null){
+            alert("Resposta inválida")
+            return
+        }else{
+            resposta.push(alternativa_marcada.value)
         }
+        
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            console.log(resposta)
+}       
+
+        
+}
+function finalizar(){
+    
+    let dados = {
+        fk_usuario: sessionStorage.user_id,
+        jogador_favorito: resposta[0],
+        idolo: resposta[1],
+        rival: resposta[2]
     }
+
+    console.log(dados)
+
+   fetch('/quiz/cadastrarResposta',{
+    method: "Post",
+    headers: {
+        "Content-Type" : "application/json",
+    },
+    body: JSON.stringify({
+        fk_usuarioServer: dados.fk_usuario,
+        jogador_favoritoServer: dados.jogador_favorito,
+        idoloServer: dados.idolo,
+        rivalServer: dados.rival
+    })
+   }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+
+                        setTimeout(function () {
+                            window.location = "/public/pagina-inicial.html";
+                        }, 1000);
+                    });
+                } else {
+                    console.log("Houve um erro ao tentar cadastrar suas respostas no quiz");
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        alert("Não foi possível cadastrar: " + texto);
+                    });
+                }
+            }).catch(function (erro) {
+                console.error("Erro ao conectar com o servidor:", erro);
+                alert("Não foi possível conectar com o servidor. Tente novamente em instantes.");
+            });
+
+}
 
 
     
 
-    function desmarcarRadioButtons() {
-        const options = document.getElementsByName("option");
-        for (let i = 0; i < options.length; i++) {
-            options[i].checked = false;
-        }
-    }
+
+
+
+    
 
 iniciarQuiz()
 </script>

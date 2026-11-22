@@ -2,6 +2,7 @@ var usuarioModel = require("../models/usuarioModel");
 
 
 function autenticar(req, res) {
+    var nome = req.body.nomeServer
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -20,7 +21,17 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                    }}).catch(
+                        res.json({
+                            id: resultadoAutenticar[0].id,
+                            nome : nome,
+                            email: email, 
+                        }
+                        )
+
+                    }else if(resultadoAutenticar.length == 0){
+                        res.status(403).send("Email ou senha inválido")
+                    }
+                }).catch(
                 function (erro) {
                     console.log(erro);
                     console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
