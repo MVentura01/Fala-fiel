@@ -304,5 +304,8 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
+            if (!sessionStorage.user_id) {
+    window.location = "/public/login.html";
+}
     }
 </script>
