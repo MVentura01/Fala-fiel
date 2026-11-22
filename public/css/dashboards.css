@@ -1,83 +1,90 @@
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
+    margin: 0;
+    padding: 0;
+    background-color: black;
 }
 
-.container-dashboard{
-  display: flex;
-  flex-direction: column;
-  height: 70rem;
-  width: 100%;
-}
-
-.container-esquerdo{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 20%;
-  background-color: #06111B;
-  border-right: solid 0.4rem #c1a101;
-}
-
-.borda{
-    border: #c8a101 solid 0.22rem;
-}
-
-.box-x{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10rem;
-  width: 100%;
-  color: white;
-}
-
-.titulo-x{
-  font-family: sans-serif;
-  font-size: 2.8rem;
-}
-
-.container-links{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.container-dashboard {
+    display: flex;
+    flex-direction: row;
+    min-height: 70rem;
+    width: 100%;
 }
 
 
-
-.box-desempenho{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
+.container-esquerdo {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    min-height: 70rem;
+    background-color: #06111B;
+    border-right: solid 0.4rem #c1a101;
 }
 
-h2{
-    text-decoration: none;
+.box-x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
     color: white;
 }
 
-.box-quiz{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
+.titulo-x {
+    font-family: sans-serif;
+    font-size: 2.2rem;
 }
 
-.box-configuracao{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
+.container-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12rem;
 }
 
-.box-color{
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  height: 10rem;
-  width: 28.6rem;
+.box-desempenho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.box-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+}
+
+.box-configuracao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+}
+
+.box-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.box-color:hover {
+    background-color: #c1a101;
+}
+
+.box-color:hover h2 {
+    color: black;
 }
