@@ -236,9 +236,13 @@ function finalizar(){
 
     
 
-iniciarQuiz()
+if (sessionStorage.getItem("user_id") == null) {
+    window.location.replace("/public/login.html");
+} else {
+    iniciarQuiz();
+}
 </script>
-<script src="/public/js/header.js"></script>
+<script src="/public/header.js"></script>
 </body>
 
 </html>

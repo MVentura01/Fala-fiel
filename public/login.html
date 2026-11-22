@@ -111,7 +111,7 @@
         </main>
     
     </div>
-    <script src="/public/js/header.js"></script>
+    <script src="/public/header.js"></script>
 </body>
 </html>
 
@@ -128,31 +128,53 @@
 
     fetch("/usuarios/autenticar", {
         method: "POST",
-        headers: {"Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+    },
         body: JSON.stringify({
-            emailServer: ax_Email,
-            senhaServer: ax_Senha
+        emailServer: ax_Email,
+        senhaServer: ax_Senha
+    })
         })
-    }).then(function (resposta) {
-        if (resposta.ok) {
-            resposta.json().then(json => {
-                sessionStorage.user_id = json.id;
-                sessionStorage.user_nome = json.nome;
-                sessionStorage.user_email = json.email;
+        .then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
 
-                 setTimeout(function () {
-                            window.location = "/public/quiz.html";
-                        }, 1000);
-            });
-        } else {
-            resposta.text().then(texto => {
-                alert(texto);
-            });
-        }
-    }).catch(function (erro) {
-        console.error(erro);
-        alert("Não foi possível conectar com o servidor.");
-    });
+                    sessionStorage.user_id = json.id;
+                    sessionStorage.user_nome = json.nome;
+                    sessionStorage.user_email = json.email;
+
+                    fetch(`/quiz/verificarResposta/${json.id}`)
+                        .then(function (respostaQuiz) {
+                            if (respostaQuiz.ok) {
+                                respostaQuiz.json().then(dados => {
+                                    if (dados.respondeu) {
+                                        window.location = "/public/pagina-inicial.html";
+                                    } else {
+                                        window.location = "/public/quiz.html";
+                                    }
+                                });
+                            } else {
+                                alert("Erro ao verificar o quiz.");
+                            }
+                        })
+                        .catch(function (erro) {
+                            console.log(erro);
+                            alert("Não foi possível verificar sua resposta.");
+                        });
+
+                });
+            } else {
+                resposta.text().then(texto => {
+                    alert(texto);
+                });
+            }
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            alert("Não foi possível conectar com o servidor.");
+        });
+
 }
-
+            
 </script>

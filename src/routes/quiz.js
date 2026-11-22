@@ -12,4 +12,8 @@ router.get("/buscarResposta", function (req, res) {
     quizController.buscarResposta(req, res);
 });
 
+router.get("/verificarResposta/:fk_usuario", function (req, res) {
+    quizController.verificarResposta(req, res);
+});
+
 module.exports = router;

@@ -6,11 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
-
-    
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="../css/header.css">
+    <title>Fala Fiel | Dashboard</title>
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -28,58 +25,75 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
+ <header>
+    <div class="container-header">
+        <div class="fala-fiel">
+            <p>Fala Fiel</p>
+        </div>
+
+        <div class="botoes-header">
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">Notícias ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Acompanhe o Timão</p>
+                    <a class="opcao" href="pagina-inicial.html#noticias">
+                        <strong>Últimas notícias</strong>
+                        <span>O que acabou de acontecer.</span>
+                    </a>
+                    <a class="opcao" href="../public/noticias.html#noticias">
+                        <strong>Todas as notícias</strong>
+                        <span>Todo o histórico de matérias.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <p class="dropdown-titulo">História ⌄</p>
+                <div class="dropdown-caixa">
+                    <p class="caixa-titulo">Conheça as histórias</p>
+                    <a class="opcao" href="../public/historia.html#historia">
+                        <strong>História do Corinthians</strong>
+                        <span>Da fundação até hoje.</span>
+                    </a>
+                    <a class="opcao" href="public/minha-historia.html#minhahistoria">
+                        <strong>Minha história</strong>
+                        <span>Como me tornei corinthiano.</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="pagina-inicial.html#elenco">Elenco</a>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">Estatística do clube</a>
+            </div>
+            <div class="dropdown">
+          <a class="dropdown-titulo" href="pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
+        </div>
+        </div>
+
+        <div class="cadastro-login">
+            <a class="cadastro" href="/public/pagina-inicial.html"><p style="padding: 0.4rem 1.2rem;">Home</p></a>
+            <a class="login" href="/public/login.html"><p style="padding: 0.4rem 1.2rem;">Login</p></a>
+        </div>
+
+    </div>
+      <div class="borda"></div>
+    </header>
+
 <body>
 
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários e Terrários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
-        </div>
-    </div>
-
-
+    
 </body>
 
 </html>
 
 <script>
+     if (!sessionStorage.user_id) {
+    window.location = "/public/pagina-cadastro.html";
+}
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
@@ -304,8 +318,5 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
-            if (!sessionStorage.user_id) {
-    window.location = "/public/login.html";
-}
     }
 </script>

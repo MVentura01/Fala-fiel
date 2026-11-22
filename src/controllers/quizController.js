@@ -49,8 +49,23 @@ function buscarResposta(req, res) {
             }
         );
 }
+            function verificarResposta(req, res) {
+                var fk_usuario = req.params.fk_usuario;
+
+                quizModel.verificarRespostaDoQuiz(fk_usuario)
+                    .then(function (resultado) {
+                        res.json({
+                            respondeu: resultado[0].total > 0
+                        });
+                    })
+                    .catch(function (erro) {
+                        console.log(erro);
+                        res.status(500).json(erro.sqlMessage);
+                    });
+            }
 
 module.exports = {
     buscarResposta,
-    cadastrarResposta
+    cadastrarResposta,
+    verificarResposta
 }

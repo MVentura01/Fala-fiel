@@ -21,10 +21,20 @@ var database = require("../database/config");
             console.log("Executando a instrução SQL: \n" + instrucaoSql);
                 return database.executar(instrucaoSql);
         }
+        function verificarRespostaDoQuiz(fk_usuario) {
+            var instrucaoSql = `
+                SELECT COUNT(*) AS total
+                FROM respostaDoQuiz
+                WHERE fk_usuario = ${fk_usuario};
+            `;
+
+            return database.executar(instrucaoSql);
+        }
 
 
 
 module.exports = {
     cadastrarRespostaDoQuiz,
-    buscarRespostaDoQuiz
+    buscarRespostaDoQuiz,
+    verificarRespostaDoQuiz
 }
