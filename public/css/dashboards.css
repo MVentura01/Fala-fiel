@@ -1,15 +1,26 @@
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #03080e;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
 }
+
 
 .container-dashboard {
     display: flex;
     flex-direction: row;
-    min-height: 70rem;
     width: 100%;
+    min-height: 70rem;
+    background-color: #03080e;
 }
+
 
 
 .container-esquerdo {
@@ -43,23 +54,8 @@ body {
     gap: 12.5rem;
 }
 
-.box-desempenho {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 100%;
-    margin-top: 5rem;
-}
-
-.box-quiz {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 100%;
-}
-
+.box-desempenho,
+.box-quiz,
 .box-configuracao {
     display: flex;
     justify-content: center;
@@ -88,90 +84,70 @@ body {
     color: black;
 }
 
-h2{
-  font-family: sans-serif;
-  font-size: 2rem;
+h2 {
+    font-family: sans-serif;
+    font-size: 1.5rem;
 }
 
 
-/* Container da direita */
+.box-color:hover h2 {
+    color: #03080e;
+}
+
+
+
 .container-direito {
     width: 80%;
-    padding: 3rem;
+    padding: 2rem;
     box-sizing: border-box;
 }
 
-/* Todas as seções começam escondidas */
 .container-direito section {
     display: none;
-    color: white;
+    width: 100%;
     min-height: 95%;
     padding: 2rem;
-    border: 1px solid #c1a101;
-    border-radius: 1rem;
+    color: white;
+    background-color: #08131e;
+    border: 1px solid #263746;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Desempenho aparece inicialmente */
 #desempenho {
     display: block;
 }
 
-/* Exibe a seção selecionada */
 .container-direito section:target {
     display: block;
 }
 
-/* Esconde o desempenho quando outra seção for selecionada */
 .container-direito:has(section:target) #desempenho:not(:target) {
     display: none;
 }
 
-.container-grafico {
-    width: 5rem;
-    height: 5rem;
-    padding: 1rem;
-    border-radius: 1rem;
+#desempenho::before,
+#quiz::before {
+    display: block;
+    margin-bottom: 2rem;
+    color: #c1a101;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.container-direito {
-    width: 80%;
-    padding: 2rem;
-    box-sizing: border-box;
+#desempenho::before {
+    content: "Desempenho do Corinthians";
 }
 
-.a-direita {
-    min-height: 60rem;
-    color: white;
-}
-
-.container-desempenho {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2rem;
-    width: 100%;
-    height: 25rem;
-    position: relative;
-}
-
-.grafico-desempenho-mes,
-.grafico-gols-mes {
-    width: 50% !important;
-    height: 100% !important;
-    background-color: #06111B;
-    border-radius: 1rem;
-    padding: 1rem;
-}
-
-.grafico-desempenho-mes{
-    background-color: #06111B;
-    border-radius: 1rem;
+#quiz::before {
+    content: "Participação da Fiel";
 }
 
 .container-kpis {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1rem;
     width: 100%;
     margin-bottom: 2rem;
@@ -182,56 +158,158 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    min-height: 9rem;
-    background-color: #06111B;
-    border-radius: 1rem;
-    border: 1px solid #c1a101;
+    min-height: 10rem;
     padding: 1rem;
-    box-sizing: border-box;
+    background: linear-gradient(145deg, #102334, #06111B);
+    border: 1px solid #8d760c;
+    border-radius: 1rem;
     text-align: center;
+    transition: 0.3s;
+}
+
+.kpi:hover,
+.kpi-quiz:hover {
+    border-color: #e6c52b;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(193, 161, 1, 0.12);
 }
 
 .kpi h3 {
-    color: #c1c0c0;
-    font-family: sans-serif;
-    font-size: 1rem;
+    color: #aeb8c2;
+    font-size: 0.85rem;
+    font-weight: normal;
+    line-height: 1.4;
 }
 
 .kpi p {
     color: #c1a101;
-    font-family: sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin: 0.5rem 0 0;
 }
+
+.container-desempenho {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    width: 100%;
+    height: 21rem;
+    margin-bottom: 1rem;
+}
+
+.grafico-desempenho-mes,
+.grafico-gols-mes {
+    width: 50% !important;
+    height: 100% !important;
+    padding: 1.2rem;
+    background-color: #0b1925;
+    border: 1px solid #263746;
+    border-radius: 1rem;
+}
+
 
 .container-posicao {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8.5rem;
+    gap: 1.5rem;
     width: 100%;
-    height: 25rem;
-    margin-top: 2rem;
-    box-sizing: border-box;
+    height: 26rem;
 }
 
 #graficoposicao {
     flex: 1;
-    max-width: 50%;
-    height: 22rem;
+    min-width: 0;
+    max-width: 60%;
 }
 
 #graficosvitorias {
-    height: 28rem;
-    max-height: none;
-    min-width: 35%;
+    flex: 1;
+    min-width: 0;
+    max-width: 40%;
 }
 
 .container-posicao canvas {
-    background-color: #06111B;
+    height: 100% !important;
+    padding: 1rem;
+    background-color: #0b1925;
+    border: 1px solid #263746;
     border-radius: 1rem;
-    padding: 1.5rem;
-    box-sizing: border-box;
+}
+
+.container-kpis-quiz {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 6rem);
+    gap: 0.8rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.kpi-quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    height: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(145deg, #102334, #06111B);
+    border: 1px solid #8d760c;
+    border-radius: 1rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.kpi-quiz h3 {
+    color: #aeb8c2;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.kpi-quiz p {
+    color: #c1a101;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0.3rem 0 0;
+}
+
+.container-jogador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 23.2rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background-color: #0b1925;
+    border: 1px solid #263746;
+    border-radius: 1rem;
+}
+
+.container-quiz-graficos {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    height: 20rem;
+    margin-top: 1rem;
+}
+
+.container-quiz-grafico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-width: 0;
+    height: 100%;
+    padding: 0.8rem;
+    background-color: #0b1925;
+    border: 1px solid #263746;
+    border-radius: 1rem;
+}
+
+.container-quiz-grafico canvas {
+    width: 100% !important;
+    height: 100% !important;
 }

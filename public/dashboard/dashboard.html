@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,114 +7,129 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/dashboards.css">
+
     <title>Fala Fiel | Dashboard</title>
+
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-    
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
-<!-- <body onload=" atualizarFeed()"> -->
+
 <body>
+
     <header>
-    <div class="container-header">
-        <div class="fala-fiel">
-            <p>Fala Fiel</p>
-        </div>
+        <div class="container-header">
 
-        <div class="botoes-header">
+            <div class="fala-fiel">
+                <p>Fala Fiel</p>
+            </div>
 
-            <div class="dropdown">
-                <p class="dropdown-titulo">Notícias ⌄</p>
-                <div class="dropdown-caixa">
-                    <p class="caixa-titulo">Acompanhe o Timão</p>
-                    <a class="opcao" href="../pagina-inicial.html#noticias">
-                        <strong>Últimas notícias</strong>
-                        <span>O que acabou de acontecer.</span>
-                    </a>
-                    <a class="opcao" href="../noticias.html#noticias">
-                        <strong>Todas as notícias</strong>
-                        <span>Todo o histórico de matérias.</span>
+            <div class="botoes-header">
+
+                <div class="dropdown">
+                    <p class="dropdown-titulo">Notícias ⌄</p>
+                    <div class="dropdown-caixa">
+                        <p class="caixa-titulo">Acompanhe o Timão</p>
+
+                        <a class="opcao" href="../pagina-inicial.html#noticias">
+                            <strong>Últimas notícias</strong>
+                            <span>O que acabou de acontecer.</span>
+                        </a>
+
+                        <a class="opcao" href="../noticias.html#noticias">
+                            <strong>Todas as notícias</strong>
+                            <span>Todo o histórico de matérias.</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <p class="dropdown-titulo">História ⌄</p>
+                    <div class="dropdown-caixa">
+                        <p class="caixa-titulo">Conheça as histórias</p>
+
+                        <a class="opcao" href="../historia.html#historia">
+                            <strong>História do Corinthians</strong>
+                            <span>Da fundação até hoje.</span>
+                        </a>
+
+                        <a class="opcao" href="../minha-historia.html#minhahistoria">
+                            <strong>Minha história</strong>
+                            <span>Como me tornei corinthiano.</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a class="dropdown-titulo" href="../pagina-inicial.html#elenco">Elenco</a>
+                </div>
+
+                <div class="dropdown">
+                    <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">
+                        Estatística do clube
                     </a>
                 </div>
-            </div>
 
-            <div class="dropdown">
-                <p class="dropdown-titulo">História ⌄</p>
-                <div class="dropdown-caixa">
-                    <p class="caixa-titulo">Conheça as histórias</p>
-                    <a class="opcao" href="../historia.html#historia">
-                        <strong>História do Corinthians</strong>
-                        <span>Da fundação até hoje.</span>
-                    </a>
-                    <a class="opcao" href="../minha-historia.html#minhahistoria">
-                        <strong>Minha história</strong>
-                        <span>Como me tornei corinthiano.</span>
+                <div class="dropdown">
+                    <a class="dropdown-titulo" href="../pagina-inicial.html#inicio"
+                        style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem;">
+                        Início
                     </a>
                 </div>
+
             </div>
 
-            <div class="dropdown">
-                <a class="dropdown-titulo" href="../pagina-inicial.html#elenco">Elenco</a>
+            <div class="cadastro-login">
+                <a class="cadastro" href="/public/pagina-inicial.html">
+                    <p style="padding: 0.4rem 1.2rem;">Home</p>
+                </a>
+
+                <a class="login" href="/public/login.html">
+                    <p style="padding: 0.4rem 1.2rem;">Login</p>
+                </a>
             </div>
-            <div class="dropdown">
-                <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">Estatística do clube</a>
-            </div>
-            <div class="dropdown">
-          <a class="dropdown-titulo" href="../pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem ;">Início</a>
-        </div>
+
         </div>
 
-        <div class="cadastro-login">
-            <a class="cadastro" href="/public/pagina-inicial.html"><p style="padding: 0.4rem 1.2rem;">Home</p></a>
-            <a class="login" href="/public/login.html"><p style="padding: 0.4rem 1.2rem;">Login</p></a>
-        </div>
-
-    </div>
-      <div class="borda"></div>
+        <div class="borda"></div>
     </header>
 
+    <main>
 
+        <div class="container-dashboard">
 
-<main>
-    <div class="container-dashboard">
+            <div class="container-esquerdo">
 
-        <div class="container-esquerdo">
-
-            <div class="box-x">
-                <h1 class="titulo-x">Raio-X do Timão</h1>
-            </div>
-
-            <div class="container-links">
-
-                <div class="box-desempenho">
-                    <a href="#desempenho" class="box-color">
-                        <h2>Desempenho do Corinthians </h2>
-                    </a>
+                <div class="box-x">
+                    <h1 class="titulo-x">Raio-X do Timão</h1>
                 </div>
 
-                <div class="box-quiz">
-                    <a href="#quiz" class="box-color">
-                        <h2>Resposta do quiz</h2>
-                    </a>
-                </div>
+                <div class="container-links">
 
-                <div class="box-configuracao">
-                    <a href="#analise-jogadores" class="box-color">
-                        <h2>Análise dos jogadores</h2>
-                    </a>
+                    <div class="box-desempenho" style="margin-top: 10rem;">
+                        <a href="#desempenho" class="box-color">
+                            <h2>Desempenho do Corinthians</h2>
+                        </a>
+                    </div>
+
+                    <div class="box-quiz">
+                        <a href="#quiz" class="box-color">
+                            <h2>Resposta do quiz</h2>
+                        </a>
+                    </div>
+
                 </div>
 
             </div>
-        </div>
 
-        <div class="container-direito">
+            <div class="container-direito">
 
-            <section id="desempenho" class="a-direita">
-                <div class="container-kpis">
+                <section id="desempenho" class="a-direita">
+
+                    <div class="container-kpis">
 
                         <div class="kpi">
                             <h3>Pontos conquistados no Brasileirão 2026:</h3>
@@ -141,227 +157,430 @@
                         </div>
 
                     </div>
-                <div class="container-desempenho">
-                    <canvas id="graficoDesempenho" class="grafico-desempenho-mes"></canvas>
-                    <canvas id="graficogols" class="grafico-gols-mes"></canvas>
-                    
-                </div>
-                <div class="container-posicao">
+
+                    <div class="container-desempenho">
+                        <canvas id="graficoDesempenho" class="grafico-desempenho-mes"></canvas>
+                        <canvas id="graficogols" class="grafico-gols-mes"></canvas>
+                    </div>
+
+                    <div class="container-posicao">
                         <canvas id="graficoposicao"></canvas>
                         <canvas id="graficosvitorias"></canvas>
                     </div>
-            </section>
 
-            <section id="quiz" class="direita">
-                <h1>Resposta do quiz</h1>
-                <p>Aqui ficarão as informações sobre o quiz.</p>
-            </section>
+                </section>
 
-            <section id="analise-jogadores" class="direita">
-                <h1>analise dos jogadores</h1>
-                <p>Aqui ficarão as configurações do usuário.</p>
-            </section>
+                <section id="quiz" class="direita">
+
+                    <div class="container-kpis-quiz">
+
+                        <div class="kpi-quiz">
+                            <h3>Total de participantes:</h3>
+                            <p>1.250</p>
+                        </div>
+
+                        <div class="kpi-quiz">
+                            <h3>Rival mais votado:</h3>
+                            <p>Palmeiras</p>
+                        </div>
+
+                        <div class="kpi-quiz">
+                            <h3>Jogador favorito:</h3>
+                            <p>Memphis</p>
+                        </div>
+
+                        <div class="kpi-quiz">
+                            <h3>Maior ídolo:</h3>
+                            <p>Sócrates</p>
+                        </div>
+
+                    </div>
+
+                    <div class="container-jogador">
+                        <canvas id="grafico-jogador"></canvas>
+                    </div>
+
+                    <div class="container-quiz-graficos">
+
+                        <div class="container-quiz-grafico">
+                            <canvas id="grafico-rival"></canvas>
+                        </div>
+
+                        <div class="container-quiz-grafico">
+                            <canvas id="grafico-idolo"></canvas>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
 
         </div>
 
-    </div>
-</main>
-
-    <script src="../header.js"></script>
-</body>
-
-</html>
-
-    
-
+    </main>
     <script>
-    
+
         const grafico = new Chart(
             document.getElementById('graficoDesempenho'),
             {
                 type: 'line',
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Pontos conquistados por mês (Brasileirão)',
-                            color: 'white',
-                            font: {
-                                size: 20
-                            }
-                        }
-                    }
-                },
 
                 data: {
                     labels: [
-                        'Janeiro',
-                        'Fevereiro',
-                        'Março',
-                        'Abril',
-                        'Maio',
-                        'Junho',
-                        'Julho',
-                        'Agosto',
-                        'Setembro',
-                        'Outubro',
-                        'Novembro',
-                        'Dezembro'
+                        'Janeiro', 'Fevereiro', 'Março', 'Abril',
+                        'Maio', 'Junho', 'Julho', 'Agosto',
+                        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
                     ],
 
                     datasets: [{
                         label: 'Desempenho',
                         data: [0, 7, 3, 5, 9, 0, 5, 3, 0, 4, 4, 0],
-                        borderColor: 'white',
+                        borderColor: '#c1a101',
+                        backgroundColor: 'rgba(193, 161, 1, 0.15)',
                         borderWidth: 2,
                         pointRadius: 5,
                     }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Pontos conquistados por mês (Brasileirão)',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+
+                    scales: {
+                        x: {
+                            ticks: { color: 'white' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: 'white' }
+                        }
+                    }
                 }
             }
         );
 
-         const gols = new Chart(
-    document.getElementById('graficogols'),
-    {
-        type: 'bar',
 
-        data: {
-            labels: [
-                'Janeiro', 'Fevereiro', 'Março', 'Abril',
-                'Maio', 'Junho', 'Julho', 'Agosto',
-                'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-            ],
+        const gols = new Chart(
+            document.getElementById('graficogols'),
+            {
+                type: 'bar',
 
-            datasets: [
-                {
-                    label: 'Gols marcados',
-                    data: [1, 4, 2, 2, 9, 0, 4, 4, 3, 7, 4, 0],
-                    backgroundColor: '#c1a101'
-                },
-                {
-                    label: 'Gols sofridos',
-                    data: [2, 1, 4, 4, 8, 0, 1, 5, 7, 10, 0, 0],
-                    backgroundColor: 'red'
-                }
-            ]
-        },
+                data: {
+                    labels: [
+                        'Janeiro', 'Fevereiro', 'Março', 'Abril',
+                        'Maio', 'Junho', 'Julho', 'Agosto',
+                        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+                    ],
 
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Gols marcados x Gols sofridos (Por mês)',
-                    color: 'white',
-                    font: {
-                        size: 20
-                    }
+                    datasets: [
+                        {
+                            label: 'Gols marcados',
+                            data: [1, 4, 2, 2, 9, 0, 4, 4, 3, 7, 4, 0],
+                            backgroundColor: '#c1a101'
+                        },
+                        {
+                            label: 'Gols sofridos',
+                            data: [2, 1, 4, 4, 8, 0, 1, 5, 7, 10, 0, 0],
+                            backgroundColor: '#b91c1c'
+                        }
+                    ]
                 },
-                legend: {
-                    labels: {
-                        color: 'white'
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: 'white'
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: 'white',
-                        stepSize: 1
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Gols marcados x Gols sofridos (Por mês)',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+
+                    scales: {
+                        x: {
+                            ticks: { color: 'white' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: 'white',
+                                stepSize: 1
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
-);const posicao = new Chart(
-    document.getElementById('graficoposicao'),
-    {
-        type: 'bar',
-        data: {
-            labels: ['Ataque', 'Meio', 'Lateral', 'Defesa'],
-            datasets: [{
-                label: 'Gols por posição',
-                data: [20, 11, 6, 8],
-                backgroundColor: '#c1a101',
-                borderColor: 'white',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Gols feitos por posição em 2026',
-                    color: 'white',
-                    font: { size: 20 }
+        );
+
+        const posicao = new Chart(
+            document.getElementById('graficoposicao'),
+            {
+                type: 'bar',
+
+                data: {
+                    labels: ['Ataque', 'Meio', 'Lateral', 'Defesa'],
+
+                    datasets: [{
+                        label: 'Gols por posição',
+                        data: [20, 11, 6, 8],
+                        backgroundColor: '#c1a101',
+                        borderColor: 'white',
+                        borderWidth: 1
+                    }]
                 },
-                legend: {
-                    labels: { color: 'white' }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: { color: 'white' }
-                },
-                y: {
-                    ticks: { color: 'white' }
-                }
-            }
-        }
-    }
-);
-const vitoria_derrota = new Chart(
-    document.getElementById('graficosvitorias'),
-    {
-        type: 'pie',
-        data: {
-            labels: ['Vitórias', 'Empates', 'Derrotas'],
-            datasets: [{
-                label: 'Resultados',
-                data: [18, 14, 18],
-                backgroundColor: [
-                    '#c1a101',
-                    'white',
-                    '#b91c1c'
-                ],
-                borderColor: 'white',
-                borderWidth: 1
-            }]
-        },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                aspectRatio: 1,
-                radius: '100%',
-                radius: '100%',
-                plugins: {
-                      title: {
-                    display: true,
-                    text: 'Vitórias x Empates x Derrotas',
-                    color: 'white',
-                    font: { size: 20 }
-                },
-                legend: {
-                    labels: { color: 'white' }
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Gols feitos por posição em 2026',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+
+                    scales: {
+                        x: {
+                            ticks: { color: 'white' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: 'white' }
+                        }
+                    }
                 }
             }
-        }
-    }
-);
+        );
+
+
+        const vitoria_derrota = new Chart(
+            document.getElementById('graficosvitorias'),
+            {
+                type: 'pie',
+
+                data: {
+                    labels: ['Vitórias', 'Empates', 'Derrotas'],
+
+                    datasets: [{
+                        label: 'Resultados',
+                        data: [18, 14, 18],
+
+                        backgroundColor: [
+                            '#c1a101',
+                            'white',
+                            '#b91c1c'
+                        ],
+
+                        borderColor: '#06111B',
+                        borderWidth: 2
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Vitórias x Empates x Derrotas',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    }
+                }
+            }
+        );
+
+
+        const jogadorFavorito = new Chart(
+            document.getElementById('grafico-jogador'),
+            {
+                type: 'bar',
+
+                data: {
+                    labels: [
+                        'Memphis',
+                        'Garro',
+                        'Yuri Alberto',
+                        'Breno Bidon',
+                        'Hugo Souza'
+                    ],
+
+                    datasets: [{
+                        label: 'Votos recebidos',
+                        data: [45, 32, 25, 18, 12],
+                        backgroundColor: '#c1a101',
+                        borderRadius: 6
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Jogadores favoritos da Fiel',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+
+                    scales: {
+                        x: {
+                            ticks: { color: 'white' },
+                            grid: { display: false }
+                        },
+
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: 'white' },
+                            grid: {
+                                color: 'rgba(255,255,255,0.08)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+
+        new Chart(document.getElementById('grafico-rival'), {
+                type: 'pie',
+                data: {
+                    labels: ['Palmeiras', 'São Paulo', 'Santos', 'Flamengo', 'Inter'],
+                    datasets: [{
+                        label: 'Votos',
+                        data: [450, 300, 200, 150, 150],
+                        backgroundColor: [
+                            'green',
+                            'red',
+                            'white',
+                            '#c0392b',
+                            '#777777'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        title:{
+                            display: true,
+                            text: 'Maior rival do Coritnhians',
+                            color: 'white',
+                            font: { size: 20 }
+                        },
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#ffffff'
+                            
+                        }
+                    }
+                }
+        }});
+        const idolo = new Chart(
+            document.getElementById('grafico-idolo'),
+            {
+                type: 'bar',
+
+                data: {
+                    labels: [
+                        'Sócrates',
+                        'Cássio',
+                        'Marcelinho',
+                        'Rivelino',
+                        'Neto'
+                    ],
+
+                    datasets: [{
+                        label: 'Votos recebidos',
+                        data: [70, 55, 45, 35, 20],
+                        backgroundColor: '#c1a101',
+                        borderRadius: 6
+                    }]
+                },
+
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Maior ídolo do Corinthians',
+                            color: 'white',
+                            font: { size: 18 }
+                        },
+
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+
+                    scales: {
+                        x: {
+                            ticks: { color: 'white' },
+                            grid: { display: false }
+                        },
+
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: 'white' },
+                            grid: {
+                                color: 'rgba(255,255,255,0.08)'
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
     </script>
+
+    <script src="../header.js"></script>
+
 </body>
+</html>
+
 </html>
 
 <script>
@@ -591,6 +810,6 @@ if (!sessionStorage.user_id) {
             .catch(function (error) {
                 console.error(Erro na obtenção dos dados p/ gráfico: ${error.message});
             });
-
-
+        
+    }
 </script>
