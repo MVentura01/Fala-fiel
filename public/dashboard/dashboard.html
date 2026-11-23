@@ -91,7 +91,7 @@
 
                 <div class="box-desempenho">
                     <a href="#desempenho" class="box-color">
-                        <h2>Desempenho</h2>
+                        <h2>Desempenho do Corinthians </h2>
                     </a>
                 </div>
 
@@ -102,8 +102,8 @@
                 </div>
 
                 <div class="box-configuracao">
-                    <a href="#configuracoes" class="box-color">
-                        <h2>Configurações</h2>
+                    <a href="#analise-jogadores" class="box-color">
+                        <h2>Análise dos jogadores</h2>
                     </a>
                 </div>
 
@@ -112,9 +112,44 @@
 
         <div class="container-direito">
 
-            <section id="desempenho" class="direita">
-                <h1>Desempenho do Corinthians</h1>
-                <p>Aqui ficarão as informações de desempenho.</p>
+            <section id="desempenho" class="a-direita">
+                <div class="container-kpis">
+
+                        <div class="kpi">
+                            <h3>Pontos conquistados no Brasileirão 2026:</h3>
+                            <p>40 pontos conquistados</p>
+                        </div>
+
+                        <div class="kpi">
+                            <h3>Jogos disputados pelo Brasileirão 2026:</h3>
+                            <p>35 jogos</p>
+                        </div>
+
+                        <div class="kpi">
+                            <h3>Vitórias no Brasileirão 2026:</h3>
+                            <p>10 vitórias</p>
+                        </div>
+
+                        <div class="kpi">
+                            <h3>Gols marcados no Brasileirão 2026:</h3>
+                            <p>40 gols marcados</p>
+                        </div>
+
+                        <div class="kpi">
+                            <h3>Gols sofridos no Brasileirão 2026:</h3>
+                            <p>42 gols sofridos</p>
+                        </div>
+
+                    </div>
+                <div class="container-desempenho">
+                    <canvas id="graficoDesempenho" class="grafico-desempenho-mes"></canvas>
+                    <canvas id="graficogols" class="grafico-gols-mes"></canvas>
+                    
+                </div>
+                <div class="container-posicao">
+                        <canvas id="graficoposicao"></canvas>
+                        <canvas id="graficosvitorias"></canvas>
+                    </div>
             </section>
 
             <section id="quiz" class="direita">
@@ -122,8 +157,8 @@
                 <p>Aqui ficarão as informações sobre o quiz.</p>
             </section>
 
-            <section id="configuracoes" class="direita">
-                <h1>Configurações</h1>
+            <section id="analise-jogadores" class="direita">
+                <h1>analise dos jogadores</h1>
                 <p>Aqui ficarão as configurações do usuário.</p>
             </section>
 
@@ -137,8 +172,200 @@
 
 </html>
 
+    
+
+    <script>
+    
+        const grafico = new Chart(
+            document.getElementById('graficoDesempenho'),
+            {
+                type: 'line',
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Pontos conquistados por mês (Brasileirão)',
+                            color: 'white',
+                            font: {
+                                size: 20
+                            }
+                        }
+                    }
+                },
+
+                data: {
+                    labels: [
+                        'Janeiro',
+                        'Fevereiro',
+                        'Março',
+                        'Abril',
+                        'Maio',
+                        'Junho',
+                        'Julho',
+                        'Agosto',
+                        'Setembro',
+                        'Outubro',
+                        'Novembro',
+                        'Dezembro'
+                    ],
+
+                    datasets: [{
+                        label: 'Desempenho',
+                        data: [0, 7, 3, 5, 9, 0, 5, 3, 0, 4, 4, 0],
+                        borderColor: 'white',
+                        borderWidth: 2,
+                        pointRadius: 5,
+                    }]
+                }
+            }
+        );
+
+         const gols = new Chart(
+    document.getElementById('graficogols'),
+    {
+        type: 'bar',
+
+        data: {
+            labels: [
+                'Janeiro', 'Fevereiro', 'Março', 'Abril',
+                'Maio', 'Junho', 'Julho', 'Agosto',
+                'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+            ],
+
+            datasets: [
+                {
+                    label: 'Gols marcados',
+                    data: [1, 4, 2, 2, 9, 0, 4, 4, 3, 7, 4, 0],
+                    backgroundColor: '#c1a101'
+                },
+                {
+                    label: 'Gols sofridos',
+                    data: [2, 1, 4, 4, 8, 0, 1, 5, 7, 10, 0, 0],
+                    backgroundColor: 'red'
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Gols marcados x Gols sofridos (Por mês)',
+                    color: 'white',
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: 'white'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white',
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    }
+);const posicao = new Chart(
+    document.getElementById('graficoposicao'),
+    {
+        type: 'bar',
+        data: {
+            labels: ['Ataque', 'Meio', 'Lateral', 'Defesa'],
+            datasets: [{
+                label: 'Gols por posição',
+                data: [20, 11, 6, 8],
+                backgroundColor: '#c1a101',
+                borderColor: 'white',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Gols feitos por posição em 2026',
+                    color: 'white',
+                    font: { size: 20 }
+                },
+                legend: {
+                    labels: { color: 'white' }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: 'white' }
+                },
+                y: {
+                    ticks: { color: 'white' }
+                }
+            }
+        }
+    }
+);
+const vitoria_derrota = new Chart(
+    document.getElementById('graficosvitorias'),
+    {
+        type: 'pie',
+        data: {
+            labels: ['Vitórias', 'Empates', 'Derrotas'],
+            datasets: [{
+                label: 'Resultados',
+                data: [18, 14, 18],
+                backgroundColor: [
+                    '#c1a101',
+                    'white',
+                    '#b91c1c'
+                ],
+                borderColor: 'white',
+                borderWidth: 1
+            }]
+        },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 1,
+                radius: '100%',
+                radius: '100%',
+                plugins: {
+                      title: {
+                    display: true,
+                    text: 'Vitórias x Empates x Derrotas',
+                    color: 'white',
+                    font: { size: 20 }
+                },
+                legend: {
+                    labels: { color: 'white' }
+                }
+            }
+        }
+    }
+);
+    </script>
+</body>
+</html>
+
 <script>
-     if (!sessionStorage.user_id) {
+if (!sessionStorage.user_id) {
     window.location = "/public/pagina-cadastro.html";
 }
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
@@ -177,7 +404,7 @@
     }
 
     function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
+        var tituloAquario = document.getElementById(tituloAquario${idAquario})
         var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
         tituloAquario.innerHTML = "Últimas medidas do <span style='color: #e6005a'>" + descricao + "</span>"
     }
@@ -188,14 +415,14 @@
         for (i = 0; i < todosOsGraficos.length; i++) {
             // exibindo - ou não - o gráfico
             if (todosOsGraficos[i].id != idAquario) {
-                let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
+                let elementoAtual = document.getElementById(grafico${todosOsGraficos[i].id})
                 if (elementoAtual.classList.contains("display-block")) {
                     elementoAtual.classList.remove("display-block")
                 }
                 elementoAtual.classList.add("display-none")
 
                 // alterando estilo do botão
-                let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
+                let btnAtual = document.getElementById(btnAquario${todosOsGraficos[i].id})
                 if (btnAtual.classList.contains("btn-pink")) {
                     btnAtual.classList.remove("btn-pink")
                 }
@@ -204,12 +431,12 @@
         }
 
         // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
+        let graficoExibir = document.getElementById(grafico${idAquario})
         graficoExibir.classList.remove("display-none")
         graficoExibir.classList.add("display-block")
 
         // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+        let btnExibir = document.getElementById(btnAquario${idAquario})
         btnExibir.classList.remove("btn-white")
         btnExibir.classList.add("btn-pink")
     }
@@ -233,10 +460,10 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(/medidas/ultimas/${idAquario}, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(Dados recebidos: ${JSON.stringify(resposta)});
                     resposta.reverse();
 
                     plotarGrafico(resposta, idAquario);
@@ -247,7 +474,7 @@
             }
         })
             .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                console.error(Erro na obtenção dos dados p/ gráfico: ${error.message});
             });
     }
 
@@ -301,7 +528,7 @@
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(myChartCanvas${idAquario}),
             config
         );
 
@@ -318,17 +545,17 @@
 
 
 
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(/medidas/tempo-real/${idAquario}, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
                     obterdados(idAquario);
                     // alertar(novoRegistro, idAquario);
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
+                    console.log(Dados recebidos: ${JSON.stringify(novoRegistro)});
+                    console.log(Dados atuais do gráfico:);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                    let avisoCaptura = document.getElementById(avisoCaptura${idAquario})
                     avisoCaptura.innerHTML = ""
 
 
@@ -362,8 +589,8 @@
             }
         })
             .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                console.error(Erro na obtenção dos dados p/ gráfico: ${error.message});
             });
 
-    }
+
 </script>
