@@ -435,36 +435,36 @@
 
 
       function maiorRival(){
-        then(function (resultados) {
+        fetch("/medidas/buscarRival")
+        .then(function (resultados) {
             if (resultados.ok) {
               return resultados.json();
             } else {
-              throw new Error("Erro ao buscar ídolos");
+              throw new Error("Erro ao buscar rivais");
             }
           }).then(function (res) {
             let nomeRival = [];
             let quantidade_votos = [];
 
             if (res.length > 0) {
-              document.getElementById("maior-idolo").innerHTML =
+              document.getElementById("grafico-rivall").innerHTML =
                 res[0].rival;
             } else {
-              document.getElementById("maior-idolo").innerHTML =
+              document.getElementById("grafico-rivall").innerHTML =
                 "Sem respostas";
             }
             for (let i = 0; i < res.length; i++) {
               nomeRival.push(res[i].rival);
               quantidade_votos.push(res[i].votos);
             }
-      })
-    const rival = new Chart(document.getElementById("grafico-rival"), {
+            const rival = new Chart(document.getElementById("grafico-rival"), {
         type: "pie",
         data: {
-          labels: ["Palmeiras", "São Paulo", "Santos", "Flamengo", "Inter"],
+          labels: nomeRival,
           datasets: [
             {
               label: "Votos",
-              data: [450, 300, 200, 150, 150],
+              data: quantidade_votos,
               backgroundColor: ["green", "red", "white", "#c0392b", "#777777"],
               borderWidth: 1,
             },
@@ -489,7 +489,8 @@
           },
         },
       });
-    }
+      })
+}
       function buscarIdolo() {
 
         fetch("/medidas/buscarIdolo")
@@ -656,6 +657,7 @@
           });
       }
 
+      maiorRival();
       buscarIdolo();
       buscarTop3Jogadores();
     </script>

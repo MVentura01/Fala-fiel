@@ -11,4 +11,8 @@ router.get("/buscarIdolo", function (req, res) {
     medidaController.buscarIdolo(req, res);
 });
 
+
+router.get("/buscarRival", function(req, res){
+    medidaController.buscarRival(req, res);
+})
 module.exports = router;

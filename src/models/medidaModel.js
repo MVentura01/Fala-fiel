@@ -25,7 +25,7 @@ var database = require("../database/config");
 }
 
 
-    function maiorRival(){
+    function buscarRival(){
         var instrucaoSql = `SELECT rival, COUNT(*) AS votos
             FROM respostaDoQuiz
             GROUP BY rival
@@ -38,5 +38,5 @@ var database = require("../database/config");
 module.exports = {
     buscarTop3Jogadores,
     buscarIdolo,
-    maiorRival
+    buscarRival
 }
