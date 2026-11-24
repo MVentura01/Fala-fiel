@@ -1,815 +1,663 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="../assets/icon/favicon2.ico"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/dashboards.css">
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/dashboards.css" />
 
     <title>Fala Fiel | Dashboard</title>
 
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <div class="container-header">
-
-            <div class="fala-fiel">
-                <p>Fala Fiel</p>
-            </div>
-
-            <div class="botoes-header">
-
-                <div class="dropdown">
-                    <p class="dropdown-titulo">Notícias ⌄</p>
-                    <div class="dropdown-caixa">
-                        <p class="caixa-titulo">Acompanhe o Timão</p>
-
-                        <a class="opcao" href="../pagina-inicial.html#noticias">
-                            <strong>Últimas notícias</strong>
-                            <span>O que acabou de acontecer.</span>
-                        </a>
-
-                        <a class="opcao" href="../noticias.html#noticias">
-                            <strong>Todas as notícias</strong>
-                            <span>Todo o histórico de matérias.</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <p class="dropdown-titulo">História ⌄</p>
-                    <div class="dropdown-caixa">
-                        <p class="caixa-titulo">Conheça as histórias</p>
-
-                        <a class="opcao" href="../historia.html#historia">
-                            <strong>História do Corinthians</strong>
-                            <span>Da fundação até hoje.</span>
-                        </a>
-
-                        <a class="opcao" href="../minha-historia.html#minhahistoria">
-                            <strong>Minha história</strong>
-                            <span>Como me tornei corinthiano.</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <a class="dropdown-titulo" href="../pagina-inicial.html#elenco">Elenco</a>
-                </div>
-
-                <div class="dropdown">
-                    <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">
-                        Estatística do clube
-                    </a>
-                </div>
-
-                <div class="dropdown">
-                    <a class="dropdown-titulo" href="../pagina-inicial.html#inicio"
-                        style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem;">
-                        Início
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="cadastro-login">
-                <a class="cadastro" href="/public/pagina-inicial.html">
-                    <p style="padding: 0.4rem 1.2rem;">Home</p>
-                </a>
-
-                <a class="login" href="/public/login.html">
-                    <p style="padding: 0.4rem 1.2rem;">Login</p>
-                </a>
-            </div>
-
+      <div class="container-header">
+        <div class="fala-fiel">
+          <p>Fala Fiel</p>
         </div>
 
-        <div class="borda"></div>
+        <div class="botoes-header">
+          <div class="dropdown">
+            <p class="dropdown-titulo">Notícias ⌄</p>
+            <div class="dropdown-caixa">
+              <p class="caixa-titulo">Acompanhe o Timão</p>
+
+              <a class="opcao" href="../pagina-inicial.html#noticias">
+                <strong>Últimas notícias</strong>
+                <span>O que acabou de acontecer.</span>
+              </a>
+
+              <a class="opcao" href="../noticias.html#noticias">
+                <strong>Todas as notícias</strong>
+                <span>Todo o histórico de matérias.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <p class="dropdown-titulo">História ⌄</p>
+            <div class="dropdown-caixa">
+              <p class="caixa-titulo">Conheça as histórias</p>
+
+              <a class="opcao" href="../historia.html#historia">
+                <strong>História do Corinthians</strong>
+                <span>Da fundação até hoje.</span>
+              </a>
+
+              <a class="opcao" href="../minha-historia.html#minhahistoria">
+                <strong>Minha história</strong>
+                <span>Como me tornei corinthiano.</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a class="dropdown-titulo" href="../pagina-inicial.html#elenco"
+              >Elenco</a
+            >
+          </div>
+
+          <div class="dropdown">
+            <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">
+              Estatística do clube
+            </a>
+          </div>
+
+          <div class="dropdown">
+            <a
+              class="dropdown-titulo"
+              href="../pagina-inicial.html#inicio"
+              style="
+                background-color: #c1a101;
+                color: black;
+                padding: 0.2rem 1.2rem;
+                border-radius: 2rem;
+                margin-left: 13rem;
+              "
+            >
+              Início
+            </a>
+          </div>
+        </div>
+
+        <div class="cadastro-login">
+          <a class="cadastro" href="/public/pagina-inicial.html">
+            <p style="padding: 0.4rem 1.2rem">Home</p>
+          </a>
+
+          <a class="login" href="/public/login.html">
+            <p style="padding: 0.4rem 1.2rem">Login</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="borda"></div>
     </header>
 
     <main>
+      <div class="container-dashboard">
+        <div class="container-esquerdo">
+          <div class="box-x">
+            <h1 class="titulo-x">Raio-X do Timão</h1>
+          </div>
 
-        <div class="container-dashboard">
-
-            <div class="container-esquerdo">
-
-                <div class="box-x">
-                    <h1 class="titulo-x">Raio-X do Timão</h1>
-                </div>
-
-                <div class="container-links">
-
-                    <div class="box-desempenho" style="margin-top: 10rem;">
-                        <a href="#desempenho" class="box-color">
-                            <h2>Desempenho do Corinthians</h2>
-                        </a>
-                    </div>
-
-                    <div class="box-quiz">
-                        <a href="#quiz" class="box-color">
-                            <h2>Resposta do quiz</h2>
-                        </a>
-                    </div>
-
-                </div>
-
+          <div class="container-links">
+            <div class="box-desempenho" style="margin-top: 10rem">
+              <a href="#desempenho" class="box-color">
+                <h2>Desempenho do Corinthians</h2>
+              </a>
             </div>
 
-            <div class="container-direito">
-
-                <section id="desempenho" class="a-direita">
-
-                    <div class="container-kpis">
-
-                        <div class="kpi">
-                            <h3>Pontos conquistados no Brasileirão 2026:</h3>
-                            <p>40 pontos conquistados</p>
-                        </div>
-
-                        <div class="kpi">
-                            <h3>Jogos disputados pelo Brasileirão 2026:</h3>
-                            <p>35 jogos</p>
-                        </div>
-
-                        <div class="kpi">
-                            <h3>Vitórias no Brasileirão 2026:</h3>
-                            <p>10 vitórias</p>
-                        </div>
-
-                        <div class="kpi">
-                            <h3>Gols marcados no Brasileirão 2026:</h3>
-                            <p>40 gols marcados</p>
-                        </div>
-
-                        <div class="kpi">
-                            <h3>Gols sofridos no Brasileirão 2026:</h3>
-                            <p>42 gols sofridos</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-desempenho">
-                        <canvas id="graficoDesempenho" class="grafico-desempenho-mes"></canvas>
-                        <canvas id="graficogols" class="grafico-gols-mes"></canvas>
-                    </div>
-
-                    <div class="container-posicao">
-                        <canvas id="graficoposicao"></canvas>
-                        <canvas id="graficosvitorias"></canvas>
-                    </div>
-
-                </section>
-
-                <section id="quiz" class="direita">
-
-                    <div class="container-kpis-quiz">
-
-                        <div class="kpi-quiz">
-                            <h3>Total de participantes:</h3>
-                            <p>1.250</p>
-                        </div>
-
-                        <div class="kpi-quiz">
-                            <h3>Rival mais votado:</h3>
-                            <p>Palmeiras</p>
-                        </div>
-
-                        <div class="kpi-quiz">
-                            <h3>Jogador favorito:</h3>
-                            <p>Memphis</p>
-                        </div>
-
-                        <div class="kpi-quiz">
-                            <h3>Maior ídolo:</h3>
-                            <p>Sócrates</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-jogador">
-                        <canvas id="grafico-jogador"></canvas>
-                    </div>
-
-                    <div class="container-quiz-graficos">
-
-                        <div class="container-quiz-grafico">
-                            <canvas id="grafico-rival"></canvas>
-                        </div>
-
-                        <div class="container-quiz-grafico">
-                            <canvas id="grafico-idolo"></canvas>
-                        </div>
-
-                    </div>
-
-                </section>
-
+            <div class="box-quiz">
+              <a href="#quiz" class="box-color">
+                <h2>Resposta do quiz</h2>
+              </a>
             </div>
-
+          </div>
         </div>
 
+        <div class="container-direito">
+          <section id="desempenho" class="a-direita">
+            <div class="container-kpis">
+              <div class="kpi">
+                <h3>Pontos conquistados no Brasileirão 2026:</h3>
+                <p>40 pontos conquistados</p>
+              </div>
+
+              <div class="kpi">
+                <h3>Jogos disputados pelo Brasileirão 2026:</h3>
+                <p>35 jogos</p>
+              </div>
+
+              <div class="kpi">
+                <h3>Vitórias no Brasileirão 2026:</h3>
+                <p>10 vitórias</p>
+              </div>
+
+              <div class="kpi">
+                <h3>Gols marcados no Brasileirão 2026:</h3>
+                <p>40 gols marcados</p>
+              </div>
+
+              <div class="kpi">
+                <h3>Gols sofridos no Brasileirão 2026:</h3>
+                <p>42 gols sofridos</p>
+              </div>
+            </div>
+
+            <div class="container-desempenho">
+              <canvas
+                id="graficoDesempenho"
+                class="grafico-desempenho-mes"
+              ></canvas>
+              <canvas id="graficogols" class="grafico-gols-mes"></canvas>
+            </div>
+
+            <div class="container-posicao">
+              <canvas id="graficoposicao"></canvas>
+              <canvas id="graficosvitorias"></canvas>
+            </div>
+          </section>
+
+          <section id="quiz" class="direita">
+            <div class="container-kpis-quiz">
+              <div class="kpi-quiz">
+                <h3>Total de participantes:</h3>
+                <p>1.250</p>
+              </div>
+
+              <div class="kpi-quiz">
+                <h3>Rival mais votado:</h3>
+                <p id="grafico-rivall">Palmeiras</p>
+              </div>
+
+              <div class="kpi-quiz">
+                <h3>Jogador favorito:</h3>
+                <p id="jogador-favorito">Memphis</p>
+              </div>
+
+              <div class="kpi-quiz">
+                <h3>Maior ídolo:</h3>
+                <p id="maior-idolo">Sócrates</p>
+              </div>
+            </div>
+
+            <div class="container-jogador">
+              <canvas id="grafico-jogador"></canvas>
+            </div>
+
+            <div class="container-quiz-graficos">
+              <div class="container-quiz-grafico">
+                <canvas id="grafico-rival"></canvas>
+              </div>
+
+              <div class="container-quiz-grafico">
+                <canvas id="grafico-idolo"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
     <script>
+      const grafico = new Chart(document.getElementById("graficoDesempenho"), {
+        type: "line",
 
-        const grafico = new Chart(
-            document.getElementById('graficoDesempenho'),
+        data: {
+          labels: [
+            "Janeiro",
+            "Fevereiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro",
+          ],
+
+          datasets: [
             {
-                type: 'line',
+              label: "Desempenho",
+              data: [0, 7, 3, 5, 9, 0, 5, 3, 0, 4, 4, 0],
+              borderColor: "#c1a101",
+              backgroundColor: "rgba(193, 161, 1, 0.15)",
+              borderWidth: 2,
+              pointRadius: 5,
+            },
+          ],
+        },
 
-                data: {
-                    labels: [
-                        'Janeiro', 'Fevereiro', 'Março', 'Abril',
-                        'Maio', 'Junho', 'Julho', 'Agosto',
-                        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-                    ],
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
 
-                    datasets: [{
-                        label: 'Desempenho',
-                        data: [0, 7, 3, 5, 9, 0, 5, 3, 0, 4, 4, 0],
-                        borderColor: '#c1a101',
-                        backgroundColor: 'rgba(193, 161, 1, 0.15)',
-                        borderWidth: 2,
-                        pointRadius: 5,
-                    }]
-                },
+          plugins: {
+            title: {
+              display: true,
+              text: "Pontos conquistados por mês (Brasileirão)",
+              color: "white",
+              font: { size: 20 },
+            },
+            legend: {
+              labels: { color: "white" },
+            },
+          },
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
+          scales: {
+            x: {
+              ticks: { color: "white" },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { color: "white" },
+            },
+          },
+        },
+      });
 
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Pontos conquistados por mês (Brasileirão)',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    },
+      const gols = new Chart(document.getElementById("graficogols"), {
+        type: "bar",
 
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: 'white' }
-                        }
-                    }
-                }
-            }
-        );
+        data: {
+          labels: [
+            "Janeiro",
+            "Fevereiro",
+            "Março",
+            "Abril",
+            "Maio",
+            "Junho",
+            "Julho",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Dezembro",
+          ],
 
-
-        const gols = new Chart(
-            document.getElementById('graficogols'),
+          datasets: [
             {
-                type: 'bar',
-
-                data: {
-                    labels: [
-                        'Janeiro', 'Fevereiro', 'Março', 'Abril',
-                        'Maio', 'Junho', 'Julho', 'Agosto',
-                        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-                    ],
-
-                    datasets: [
-                        {
-                            label: 'Gols marcados',
-                            data: [1, 4, 2, 2, 9, 0, 4, 4, 3, 7, 4, 0],
-                            backgroundColor: '#c1a101'
-                        },
-                        {
-                            label: 'Gols sofridos',
-                            data: [2, 1, 4, 4, 8, 0, 1, 5, 7, 10, 0, 0],
-                            backgroundColor: '#b91c1c'
-                        }
-                    ]
-                },
-
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Gols marcados x Gols sofridos (Por mês)',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    },
-
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: 'white',
-                                stepSize: 1
-                            }
-                        }
-                    }
-                }
-            }
-        );
-
-        const posicao = new Chart(
-            document.getElementById('graficoposicao'),
+              label: "Gols marcados",
+              data: [1, 4, 2, 2, 9, 0, 4, 4, 3, 7, 4, 0],
+              backgroundColor: "#c1a101",
+            },
             {
-                type: 'bar',
+              label: "Gols sofridos",
+              data: [2, 1, 4, 4, 8, 0, 1, 5, 7, 10, 0, 0],
+              backgroundColor: "#b91c1c",
+            },
+          ],
+        },
 
-                data: {
-                    labels: ['Ataque', 'Meio', 'Lateral', 'Defesa'],
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
 
-                    datasets: [{
-                        label: 'Gols por posição',
-                        data: [20, 11, 6, 8],
-                        backgroundColor: '#c1a101',
-                        borderColor: 'white',
-                        borderWidth: 1
-                    }]
-                },
+          plugins: {
+            title: {
+              display: true,
+              text: "Gols marcados x Gols sofridos (Por mês)",
+              color: "white",
+              font: { size: 20 },
+            },
+            legend: {
+              labels: { color: "white" },
+            },
+          },
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+          scales: {
+            x: {
+              ticks: { color: "white" },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: "white",
+                stepSize: 1,
+              },
+            },
+          },
+        },
+      });
 
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Gols feitos por posição em 2026',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    },
+      const posicao = new Chart(document.getElementById("graficoposicao"), {
+        type: "bar",
 
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: 'white' }
-                        }
-                    }
-                }
-            }
-        );
+        data: {
+          labels: ["Ataque", "Meio", "Lateral", "Defesa"],
 
-
-        const vitoria_derrota = new Chart(
-            document.getElementById('graficosvitorias'),
+          datasets: [
             {
-                type: 'pie',
+              label: "Gols por posição",
+              data: [20, 11, 6, 8],
+              backgroundColor: "#c1a101",
+              borderColor: "white",
+              borderWidth: 1,
+            },
+          ],
+        },
 
-                data: {
-                    labels: ['Vitórias', 'Empates', 'Derrotas'],
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
 
-                    datasets: [{
-                        label: 'Resultados',
-                        data: [18, 14, 18],
+          plugins: {
+            title: {
+              display: true,
+              text: "Gols feitos por posição em 2026",
+              color: "white",
+              font: { size: 20 },
+            },
+            legend: {
+              labels: { color: "white" },
+            },
+          },
 
-                        backgroundColor: [
-                            '#c1a101',
-                            'white',
-                            '#b91c1c'
-                        ],
+          scales: {
+            x: {
+              ticks: { color: "white" },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: { color: "white" },
+            },
+          },
+        },
+      });
 
-                        borderColor: '#06111B',
-                        borderWidth: 2
-                    }]
-                },
+      const vitoria_derrota = new Chart(
+        document.getElementById("graficosvitorias"),
+        {
+          type: "pie",
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+          data: {
+            labels: ["Vitórias", "Empates", "Derrotas"],
 
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Vitórias x Empates x Derrotas',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
+            datasets: [
+              {
+                label: "Resultados",
+                data: [18, 14, 18],
 
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    }
-                }
-            }
-        );
+                backgroundColor: ["#c1a101", "white", "#b91c1c"],
 
+                borderColor: "#06111B",
+                borderWidth: 2,
+              },
+            ],
+          },
 
-        const jogadorFavorito = new Chart(
-            document.getElementById('grafico-jogador'),
-            {
-                type: 'bar',
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
 
-                data: {
-                    labels: [
-                        'Memphis',
-                        'Garro',
-                        'Yuri Alberto',
-                        'Breno Bidon',
-                        'Hugo Souza'
-                    ],
+            plugins: {
+              title: {
+                display: true,
+                text: "Vitórias x Empates x Derrotas",
+                color: "white",
+                font: { size: 20 },
+              },
 
-                    datasets: [{
-                        label: 'Votos recebidos',
-                        data: [45, 32, 25, 18, 12],
-                        backgroundColor: '#c1a101',
-                        borderRadius: 6
-                    }]
-                },
+              legend: {
+                labels: { color: "white" },
+              },
+            },
+          },
+        },
+      );
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Jogadores favoritos da Fiel',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
-
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    },
-
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' },
-                            grid: { display: false }
-                        },
-
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: 'white' },
-                            grid: {
-                                color: 'rgba(255,255,255,0.08)'
-                            }
-                        }
-                    }
-                }
-            }
-        );
-
-
-        new Chart(document.getElementById('grafico-rival'), {
-                type: 'pie',
-                data: {
-                    labels: ['Palmeiras', 'São Paulo', 'Santos', 'Flamengo', 'Inter'],
-                    datasets: [{
-                        label: 'Votos',
-                        data: [450, 300, 200, 150, 150],
-                        backgroundColor: [
-                            'green',
-                            'red',
-                            'white',
-                            '#c0392b',
-                            '#777777'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    plugins: {
-                        title:{
-                            display: true,
-                            text: 'Maior rival do Coritnhians',
-                            color: 'white',
-                            font: { size: 20 }
-                        },
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#ffffff'
-                            
-                        }
-                    }
-                }
-        }});
-        const idolo = new Chart(
-            document.getElementById('grafico-idolo'),
-            {
-                type: 'bar',
-
-                data: {
-                    labels: [
-                        'Sócrates',
-                        'Cássio',
-                        'Marcelinho',
-                        'Rivelino',
-                        'Neto'
-                    ],
-
-                    datasets: [{
-                        label: 'Votos recebidos',
-                        data: [70, 55, 45, 35, 20],
-                        backgroundColor: '#c1a101',
-                        borderRadius: 6
-                    }]
-                },
-
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Maior ídolo do Corinthians',
-                            color: 'white',
-                            font: { size: 18 }
-                        },
-
-                        legend: {
-                            labels: { color: 'white' }
-                        }
-                    },
-
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' },
-                            grid: { display: false }
-                        },
-
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: 'white' },
-                            grid: {
-                                color: 'rgba(255,255,255,0.08)'
-                            }
-                        }
-                    }
-                }
-            }
-        );
-
+     
     </script>
 
     <script src="../header.js"></script>
+    <script>
+      if (!sessionStorage.user_id) {
+        window.location = "/public/pagina-cadastro.html";
+      } 
 
-</body>
-</html>
+      let proximaAtualizacao;
 
-</html>
+      let jogadorFavorito;
 
-<script>
-if (!sessionStorage.user_id) {
-    window.location = "/public/pagina-cadastro.html";
-}
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    let proximaAtualizacao;
-
-    window.onload = exibirAquariosDoUsuario();
-
-    function exibirAquariosDoUsuario() {
-        var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-        aquarios.forEach(item => {
-            document.getElementById("btnAquario").innerHTML += `
-            <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-            `
-
-            document.getElementById("graficos").innerHTML += `
-                <div id="grafico${item.id}" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario${item.id}">${item.descricao}</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas${item.id}"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura${item.id}" style="color: white"></p>
-                    </div>
-                </div>
-            `
-
-            obterDadosGrafico(item.id)
-        });
-
-        if (aquarios.length > 0) {
-            exibirAquario(aquarios[0].id)
-        }
-    }
-
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(tituloAquario${idAquario})
-        var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-        tituloAquario.innerHTML = "Últimas medidas do <span style='color: #e6005a'>" + descricao + "</span>"
-    }
-
-    function exibirAquario(idAquario) {
-        let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
-
-        for (i = 0; i < todosOsGraficos.length; i++) {
-            // exibindo - ou não - o gráfico
-            if (todosOsGraficos[i].id != idAquario) {
-                let elementoAtual = document.getElementById(grafico${todosOsGraficos[i].id})
-                if (elementoAtual.classList.contains("display-block")) {
-                    elementoAtual.classList.remove("display-block")
-                }
-                elementoAtual.classList.add("display-none")
-
-                // alterando estilo do botão
-                let btnAtual = document.getElementById(btnAquario${todosOsGraficos[i].id})
-                if (btnAtual.classList.contains("btn-pink")) {
-                    btnAtual.classList.remove("btn-pink")
-                }
-                btnAtual.classList.add("btn-white")
-            }
-        }
-
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(grafico${idAquario})
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
-
-        // alterando estilo do botão
-        let btnExibir = document.getElementById(btnAquario${idAquario})
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
-    }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
-
-        alterarTitulo(idAquario)
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(/medidas/ultimas/${idAquario}, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(Dados recebidos: ${JSON.stringify(resposta)});
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idAquario);
-
-                });
+      function maiorRival(){
+        then(function (resultados) {
+            if (resultados.ok) {
+              return resultados.json();
             } else {
-                console.error('Nenhum dado encontrado ou erro na API');
+              throw new Error("Erro ao buscar ídolos");
             }
-        })
-            .catch(function (error) {
-                console.error(Erro na obtenção dos dados p/ gráfico: ${error.message});
-            });
-    }
+          }).then(function (res) {
+            let nomeRival = [];
+            let quantidade_votos = [];
 
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [
+            if (res.length > 0) {
+              document.getElementById("maior-idolo").innerHTML =
+                res[0].rival;
+            } else {
+              document.getElementById("maior-idolo").innerHTML =
+                "Sem respostas";
+            }
+            for (let i = 0; i < res.length; i++) {
+              nomeRival.push(res[i].rival);
+              quantidade_votos.push(res[i].votos);
+            }
+      })
+    const rival = new Chart(document.getElementById("grafico-rival"), {
+        type: "pie",
+        data: {
+          labels: ["Palmeiras", "São Paulo", "Santos", "Flamengo", "Inter"],
+          datasets: [
             {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.temperatura);
-        }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById(myChartCanvas${idAquario}),
-            config
-        );
-
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+              label: "Votos",
+              data: [450, 300, 200, 150, 150],
+              backgroundColor: ["green", "red", "white", "#c0392b", "#777777"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Maior rival do Coritnhians",
+              color: "white",
+              font: { size: 20 },
+            },
+            legend: {
+              position: "bottom",
+              labels: {
+                color: "#ffffff",
+              },
+            },
+          },
+        },
+      });
     }
+      function buscarIdolo() {
 
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-        fetch(/medidas/tempo-real/${idAquario}, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    obterdados(idAquario);
-                    // alertar(novoRegistro, idAquario);
-                    console.log(Dados recebidos: ${JSON.stringify(novoRegistro)});
-                    console.log(Dados atuais do gráfico:);
-                    console.log(dados);
-
-                    let avisoCaptura = document.getElementById(avisoCaptura${idAquario})
-                    avisoCaptura.innerHTML = ""
-
-
-                    if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].momento_grafico)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                        dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                        myChart.update();
-                    }
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-                });
+        fetch("/medidas/buscarIdolo")
+          .then(function (resultados) {
+            if (resultados.ok) {
+              return resultados.json();
             } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+              throw new Error("Erro ao buscar ídolos");
             }
-        })
-            .catch(function (error) {
-                console.error(Erro na obtenção dos dados p/ gráfico: ${error.message});
+          })
+          .then(function (res) {
+            let nomeIdolos = [];
+            let quantidade_votos = [];
+
+            if (res.length > 0) {
+              document.getElementById("maior-idolo").innerHTML =
+                res[0].idolo;
+            } else {
+              document.getElementById("maior-idolo").innerHTML =
+                "Sem respostas";
+            }
+            for (let i = 0; i < res.length; i++) {
+              nomeIdolos.push(res[i].idolo);
+              quantidade_votos.push(res[i].votos);
+            }
+            const idolo = new Chart(document.getElementById("grafico-idolo"), {
+              type: "bar",
+
+              data: {
+                labels: nomeIdolos,
+
+                datasets: [
+                  {
+                    label: "Votos recebidos",
+                    data: quantidade_votos,
+                    backgroundColor: "#c1a101",
+                    borderRadius: 6,
+                  },
+                ],
+              },
+
+              options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Maior ídolo do Corinthians",
+                    color: "white",
+                    font: { size: 18 },
+                  },
+
+                  legend: {
+                    labels: { color: "white" },
+                  },
+                },
+
+                scales: {
+                  x: {
+                    ticks: { color: "white" },
+                    grid: { display: false },
+                  },
+
+                  y: {
+                    beginAtZero: true,
+                    ticks: { color: "white" },
+                    grid: {
+                      color: "rgba(255,255,255,0.08)",
+                    },
+                  },
+                },
+              },
             });
-        
-    }
-</script>
+          })
+          .catch(function (erro) {
+            console.error(erro);
+          });
+      }
+      
+      function buscarTop3Jogadores() {
+        fetch("/medidas/buscarTop3Jogadores")
+          .then(function (resultados) {
+            if (resultados.ok) {
+              return resultados.json();
+            } else {
+              throw new Error("Erro ao buscar jogadores");
+            }
+          })
+          .then(function (res) {
+            console.log(res);
+
+            let nomesJogadores = [];
+            let quantidadeVotos = [];
+            if (res.length > 0) {
+              document.getElementById("jogador-favorito").innerHTML =
+                res[0].jogador_favorito;
+            } else {
+              document.getElementById("jogador-favorito").innerHTML =
+                "Sem respostas";
+            }
+
+            for (let i = 0; i < res.length; i++) {
+              nomesJogadores.push(res[i].jogador_favorito);
+              quantidadeVotos.push(res[i].votos);
+            }
+
+            jogadorFavorito = new Chart(
+              document.getElementById("grafico-jogador"),
+              {
+                type: "bar",
+
+                data: {
+                  labels: nomesJogadores,
+
+                  datasets: [
+                    {
+                      label: "Votos recebidos",
+                      data: quantidadeVotos,
+                      backgroundColor: "#c1a101",
+                      borderRadius: 6,
+                    },
+                  ],
+                },
+
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: "Jogadores favoritos da Fiel",
+                      color: "white",
+                      font: { size: 20 },
+                    },
+
+                    legend: {
+                      labels: { color: "white" },
+                    },
+                  },
+
+                  scales: {
+                    x: {
+                      ticks: { color: "white" },
+                      grid: { display: false },
+                    },
+
+                    y: {
+                      beginAtZero: true,
+                      ticks: { color: "white" },
+                      grid: {
+                        color: "rgba(255,255,255,0.08)",
+                      },
+                    },
+                  },
+                },
+              },
+            );
+          })
+          .catch(function (erro) {
+            console.error(erro);
+          });
+      }
+
+      buscarIdolo();
+      buscarTop3Jogadores();
+    </script>
+  </body>
+</html>

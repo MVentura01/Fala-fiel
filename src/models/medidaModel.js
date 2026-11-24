@@ -1,34 +1,42 @@
 var database = require("../database/config");
-
-function buscarUltimasMedidas(idAquario, limite_linhas) {
-
-    var instrucaoSql = `SELECT 
-                        temperatura,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
-                    WHERE fk_aquario = ${idAquario}
-                    ORDER BY id DESC LIMIT ${limite_linhas}`;
-
+''
+    function buscarTop3Jogadores() {
+    var instrucaoSql = `
+        SELECT jogador_favorito, COUNT(*) AS votos
+        FROM respostaDoQuiz
+        GROUP BY jogador_favorito
+        ORDER BY votos DESC
+        LIMIT 3;
+    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
 
-    var instrucaoSql = `SELECT 
-                        temperatura,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
-
+    function buscarIdolo() {
+    var instrucaoSql = `
+        SELECT idolo, COUNT(*) AS votos
+        FROM respostaDoQuiz
+        GROUP BY idolo
+        ORDER BY votos DESC;
+    `; 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+
+    function maiorRival(){
+        var instrucaoSql = `SELECT rival, COUNT(*) AS votos
+            FROM respostaDoQuiz
+            GROUP BY rival
+            ORDER BY votos DESC;
+        `;
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarTop3Jogadores,
+    buscarIdolo,
+    maiorRival
 }
