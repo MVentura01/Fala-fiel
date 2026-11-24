@@ -15,4 +15,8 @@ router.get("/buscarIdolo", function (req, res) {
 router.get("/buscarRival", function(req, res){
     medidaController.buscarRival(req, res);
 })
+
+router.get("/total_participantes", function(req, res){
+    medidaController.total_participantes(req, res);
+})
 module.exports = router;

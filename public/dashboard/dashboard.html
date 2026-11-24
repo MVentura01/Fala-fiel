@@ -174,7 +174,7 @@
             <div class="container-kpis-quiz">
               <div class="kpi-quiz">
                 <h3>Total de participantes:</h3>
-                <p>1.250</p>
+                <p id="total-participantes"></p>
               </div>
 
               <div class="kpi-quiz">
@@ -433,6 +433,21 @@
 
       let jogadorFavorito;
 
+      function total_participantes(){
+        fetch("/medidas/total_participantes")
+        .then(function (resultados) {
+            if (resultados.ok) {
+              return resultados.json();
+            } else {
+              throw new Error("Erro ao buscar rivais");
+            }
+      }) .then(function (res) {
+            document.getElementById("total-participantes").innerHTML =
+                res[0].total_participantes;
+      }).catch(function (erro) {
+            console.error(erro);
+          });
+    }
 
       function maiorRival(){
         fetch("/medidas/buscarRival")
@@ -489,7 +504,9 @@
           },
         },
       });
-      })
+      }).catch(function (erro) {
+            console.error(erro);
+          });
 }
       function buscarIdolo() {
 
@@ -657,6 +674,7 @@
           });
       }
 
+      total_participantes();
       maiorRival();
       buscarIdolo();
       buscarTop3Jogadores();

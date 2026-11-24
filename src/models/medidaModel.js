@@ -35,8 +35,17 @@ var database = require("../database/config");
         return database.executar(instrucaoSql);
     }
 
+    function total_participantes(){
+        var instrucaoSql = `SELECT COUNT(*) AS total_participantes
+        FROM respostaDoQuiz;
+        `;
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }
+
 module.exports = {
     buscarTop3Jogadores,
     buscarIdolo,
-    buscarRival
+    buscarRival,
+    total_participantes
 }
