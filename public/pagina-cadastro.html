@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +9,7 @@
     <link rel="stylesheet" href="../public/css/header.css">
     <title>Cadastro</title>
 </head>
-</head>
+
 <body>
     <header>
         <div class="container-header">
@@ -50,19 +52,27 @@
                 <div class="dropdown">
                     <a class="dropdown-titulo" href="/public/pagina-inicial.html#elenco">Elenco</a>
                 </div>
+
                 <div class="dropdown">
                     <a class="dropdown-titulo" href="/public/dashboard/dashboard.html">Estatística do clube</a>
                 </div>
+
                 <div class="dropdown">
-                    <a class="dropdown-titulo" href="/public/pagina-inicial.html#inicio" style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem;">Início</a>
+                    <a class="dropdown-titulo" href="/public/pagina-inicial.html#inicio"
+                        style="background-color: #c1a101; color: black; padding: 0.2rem 1.2rem; border-radius: 2rem; margin-left: 13rem;">Início</a>
                 </div>
             </div>
 
             <div class="cadastro-login">
-                <a class="cadastro" href="/public/pagina-inicial.html"><p style="padding: 0.4rem 1.2rem;">Home</p></a>
-                <a class="login" href="/public/login.html"><p style="padding: 0.4rem 1.2rem;">Login</p></a>
+                <a class="cadastro" href="/public/pagina-inicial.html">
+                    <p style="padding: 0.4rem 1.2rem;">Home</p>
+                </a>
+                <a class="login" href="/public/login.html">
+                    <p style="padding: 0.4rem 1.2rem;">Login</p>
+                </a>
             </div>
         </div>
+
         <div class="borda"></div>
     </header>
 
@@ -71,11 +81,12 @@
             <div class="hero-cadastro">
                 <h1 class="frase-fundo">
                     SEJA MAIS UM <br>
-                    <span class="frase-amarela"> FIEL TORCEDOR</span>
+                    <span class="frase-amarela">FIEL TORCEDOR</span>
                     <div class="linha"></div>
                     <div class="subtitulo">
                         <p class="paragrafo-subtitulo">
-                            Faça parte da torcida mais fiel e <br> apaixonada do Brasil!
+                            Faça parte da torcida mais fiel e <br>
+                            apaixonada do Brasil!
                         </p>
                     </div>
                 </h1>
@@ -100,22 +111,9 @@
                 <input type="password" id="senha" class="nome-input">
             </div>
 
-            <div class="autenticacao">
-                <p class="paragrafo-autenticacao">Sua senha deve conter: <br> <br>
-                    <span class="maiuscula">letra maiúscula ❌</span> <br>
-                    <span class="minuscula">letra minúscula ❌</span> <br>
-                    <span class="numero">pelo menos um número ❌</span> <br>
-                    <span class="oito">8 caracteres ❌</span> <br>
-                    <span class="caractere">um caractere especial (!@#$...) ❌</span>
-                </p>
-            </div>
-
             <div class="paragrafo-confirmar">Confirmar Senha:</div>
             <div class="borda-nome">
                 <input type="password" id="Confirmar" class="nome-input">
-            </div>
-            <div class="informando-confirmacao">
-                <p class="informando"></p>
             </div>
 
             <div class="botao-cadastrar">
@@ -125,6 +123,7 @@
             <div class="ja-possui">
                 <p class="frase-possui">Já possui conta?</p><br>
             </div>
+
             <div class="possui-botao">
                 <a class="frase-login" href="/public/login.html">Login</a>
             </div>
@@ -137,21 +136,6 @@
         const campoSenha = document.getElementById("senha");
         const campoConfirmar = document.getElementById("Confirmar");
 
-        const maiuscula = document.querySelector(".maiuscula");
-        const minuscula = document.querySelector(".minuscula");
-        const numero = document.querySelector(".numero");
-        const caractere = document.querySelector(".caractere");
-        const tamanho = document.querySelector(".oito");
-        const informando = document.querySelector(".informando");
-
-        function marcar(elemento, texto, ok) {
-            if (ok) {
-                elemento.innerHTML = `<span style="color: #c8a101">${texto} ☑️</span>`;
-            } else {
-                elemento.innerHTML = `${texto} ❌`;
-            }
-        }
-
         function checarSenha(senha) {
             return {
                 maiuscula: senha.toLowerCase() != senha,
@@ -162,29 +146,39 @@
             };
         }
 
-        function verificacao() {
+        function validarSenhaVisual() {
             let r = checarSenha(campoSenha.value);
 
-            marcar(maiuscula, "letra maiúscula", r.maiuscula);
-            marcar(minuscula, "letra minúscula", r.minuscula);
-            marcar(numero, "pelo menos um número", r.numero);
-            marcar(caractere, "um caractere especial (!@#$...)", r.especial);
-            marcar(tamanho, "8 caracteres", r.tamanho);
-        }
+            let senhaValida = r.maiuscula &&
+                r.minuscula &&
+                r.numero &&
+                r.especial &&
+                r.tamanho;
 
-        function confirmacaoSenha() {
-            if (campoConfirmar.value == "") {
-                informando.innerHTML = "";
-            } else if (campoConfirmar.value != campoSenha.value) {
-                informando.innerHTML = `<span style="color: red">Senha incorreta ❌</span>`;
+            campoSenha.classList.remove("valido", "invalido");
+
+            if (senhaValida) {
+                campoSenha.classList.add("valido");
             } else {
-                informando.innerHTML = `<span style="color: #c8a101">Senhas iguais ☑️</span>`;
+                campoSenha.classList.add("invalido");
             }
         }
 
-        campoSenha.addEventListener("input", verificacao);
-        campoSenha.addEventListener("input", confirmacaoSenha);
-        campoConfirmar.addEventListener("input", confirmacaoSenha);
+        function validarConfirmacaoVisual() {
+            campoConfirmar.classList.remove("valido", "invalido");
+
+            if (campoConfirmar.value == campoSenha.value &&
+                campoConfirmar.value != "") {
+
+                campoConfirmar.classList.add("valido");
+
+            } else {
+                campoConfirmar.classList.add("invalido");
+            }
+        }
+
+        campoSenha.addEventListener("blur", validarSenhaVisual);
+        campoConfirmar.addEventListener("blur", validarConfirmacaoVisual);
 
         function cadastrar() {
             let ax_Nome = campoNome.value.trim();
@@ -192,32 +186,43 @@
             let ax_Senha = campoSenha.value;
             let ax_ConfirmaSenha = campoConfirmar.value;
 
+            validarSenhaVisual();
+            validarConfirmacaoVisual();
+
             if (ax_Nome == '') {
                 alert('É necessário informar o seu nome para seguir com o cadastro');
                 return;
             }
+
             if (ax_Email == '') {
                 alert('É necessário informar o seu email para seguir com o cadastro');
                 return;
             }
+
             if (!ax_Email.includes('@') || !ax_Email.includes('.')) {
                 alert('Informe um email válido');
                 return;
             }
+
             if (ax_Senha == '') {
                 alert('É necessário inserir uma senha para seguir com o cadastro');
                 return;
             }
 
             let forca = checarSenha(ax_Senha);
-            if (!(forca.maiuscula && forca.minuscula && forca.numero && forca.especial && forca.tamanho)) {
+
+            if (!(forca.maiuscula && forca.minuscula && forca.numero &&
+                forca.especial && forca.tamanho)) {
+
                 alert('Sua senha não atende a todos os requisitos');
                 return;
             }
+
             if (ax_ConfirmaSenha == '') {
                 alert('É necessário inserir a senha novamente para seguir com o cadastro');
                 return;
             }
+
             if (ax_ConfirmaSenha != ax_Senha) {
                 alert('Senhas não condizentes');
                 return;
@@ -235,6 +240,7 @@
                     confirmarSenhaServer: ax_ConfirmaSenha
                 })
             }).then(function (resposta) {
+
                 if (resposta.ok) {
                     resposta.json().then(json => {
                         sessionStorage.user_nome = json.nome;
@@ -244,19 +250,24 @@
                             window.location = "/public/login.html";
                         }, 1000);
                     });
+
                 } else {
                     console.log("Houve um erro ao tentar realizar o cadastro");
+
                     resposta.text().then(texto => {
                         console.error(texto);
                         alert("Não foi possível cadastrar: " + texto);
                     });
                 }
+
             }).catch(function (erro) {
                 console.error("Erro ao conectar com o servidor:", erro);
                 alert("Não foi possível conectar com o servidor. Tente novamente em instantes.");
             });
         }
     </script>
+
     <script src="/public/header.js"></script>
+
 </body>
 </html>

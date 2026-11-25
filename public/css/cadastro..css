@@ -138,13 +138,13 @@ main{
 }
 
 .paragrafo-email{
-    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: sans-serif;
     font-size: 2rem;
+    
 }
 
 .paragrafo-senha{
@@ -309,3 +309,25 @@ span{
 .home:hover{
     transform: scale(1.25);
 }
+
+.nome-input {
+    border: black solid 0.15rem;
+    border-radius: 0.8rem;
+    height: 2.5rem;
+    width: 20rem;
+    padding: 0 0.7rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    margin-bottom: 5rem;
+}
+
+.nome-input.valido {
+    border: #269B63 solid 0.15rem;
+    outline: none;
+}
+
+.nome-input.invalido {
+    border: #DC5555 solid 0.15rem;
+    outline: none;
+}
+
